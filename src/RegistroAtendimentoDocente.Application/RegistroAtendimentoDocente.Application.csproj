@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="UseCases\RegistroAtendimento\Service\Reports\Pdf\Fonts\PTSerif-Bold.ttf" />
+    <None Remove="UseCases\RegistroAtendimento\Service\Reports\Pdf\Fonts\PTSerif-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="UseCases\RegistroAtendimento\Service\Reports\Pdf\Fonts\PTSerif-Bold.ttf" />
+    <EmbeddedResource Include="UseCases\RegistroAtendimento\Service\Reports\Pdf\Fonts\PTSerif-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.4" />
+    <PackageReference Include="PDFsharp-MigraDoc" Version="6.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RegistroAtendimentoDocente.Communication\RegistroAtendimentoDocente.Communication.csproj" />
+    <ProjectReference Include="..\RegistroAtendimentoDocente.Domain\RegistroAtendimentoDocente.Domain.csproj" />
+    <ProjectReference Include="..\RegistroAtendimentoDocente.Exception\RegistroAtendimentoDocente.Exception.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Logo\logo-seduc.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

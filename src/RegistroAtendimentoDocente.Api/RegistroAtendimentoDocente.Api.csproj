@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RegistroAtendimentoDocente.Application\RegistroAtendimentoDocente.Application.csproj" />
+    <ProjectReference Include="..\RegistroAtendimentoDocente.Communication\RegistroAtendimentoDocente.Communication.csproj" />
+    <ProjectReference Include="..\RegistroAtendimentoDocente.Exception\RegistroAtendimentoDocente.Exception.csproj" />
+    <ProjectReference Include="..\RegistroAtendimentoDocente.Infrastructure\RegistroAtendimentoDocente.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
