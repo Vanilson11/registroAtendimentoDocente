@@ -33,7 +33,7 @@ Para executar este projeto, você precisará ter instalado:
    git clone https://github.com/Vanilson11/registroAtendimentoDocente.git
    ```
 
-2. Preencha as informações no arquivo `appsettings.Development.json`.
+2. Preencha as informações de connectionString no arquivo `appsettings.Development.json`.
 3. Execute a API e aproveite o seu teste!
 
 ## 📌 Status do Projeto
@@ -44,4 +44,5 @@ Para executar este projeto, você precisará ter instalado:
 <!-- Badges -->
 [dot-net-badge]: https://img.shields.io/badge/.NET-512BD4?logo=dotnet&logoColor=fff&style=flat-square
 [mysql-badge]: https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff&style=flat-square
+
 [swagger-badge]: https://img.shields.io/badge/Swagger-85EA2D?logo=swagger&logoColor=000&style=flat-square
