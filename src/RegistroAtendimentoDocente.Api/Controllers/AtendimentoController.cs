@@ -28,7 +28,7 @@ public class AtendimentoController : ControllerBase
     [HttpGet]
     [Route("{id}")]
     [ProducesResponseType(typeof(ResponseAtendimentoJson), StatusCodes.Status200OK)]
-    [ProducesResponseType(typeof(ResponseAtendimentoErrorJson), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ResponseErrorsJson), StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetAtendimentoById([FromServices] IGetAtendimentoByIdUseCase useCase, [FromRoute] int id)
     {
         var response = await useCase.Execute(id);
@@ -38,7 +38,7 @@ public class AtendimentoController : ControllerBase
 
     [HttpPost]
     [ProducesResponseType(typeof(ResponseRegisterAtendimentoJson), StatusCodes.Status201Created)]
-    [ProducesResponseType(typeof(ResponseAtendimentoErrorJson), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ResponseErrorsJson), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Register([FromServices] IRegisterAtendimentoUseCase useCase, [FromBody] RequestAtendimentoJson request)
     {
         var response = await useCase.Execute(request);
@@ -49,8 +49,8 @@ public class AtendimentoController : ControllerBase
     [HttpPut]
     [Route("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(typeof(ResponseAtendimentoErrorJson), StatusCodes.Status400BadRequest)]
-    [ProducesResponseType(typeof(ResponseAtendimentoErrorJson), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ResponseErrorsJson), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ResponseErrorsJson), StatusCodes.Status404NotFound)]
     public async Task<IActionResult> UpdateAtendimento([FromServices] IUpdateAtendimentoUseCase useCase,
         [FromBody] RequestAtendimentoJson request,
         [FromRoute] int id)
@@ -62,7 +62,7 @@ public class AtendimentoController : ControllerBase
 
     [HttpDelete]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    [ProducesResponseType(typeof(ResponseAtendimentoErrorJson), StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(ResponseErrorsJson), StatusCodes.Status404NotFound)]
     public async Task<IActionResult> DeleteAtendimento([FromServices] IDeleteAtendimentosUseCase useCase, [FromRoute] int id)
     {
         await useCase.Execute(id);

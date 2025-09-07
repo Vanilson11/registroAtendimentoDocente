@@ -123,6 +123,12 @@
   <data name="DATE_MEETING_EMPTY" xml:space="preserve">
     <value>A data da reunião é obrigatória.</value>
   </data>
+  <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
+    <value>E-mail já está sendo utlizado.</value>
+  </data>
+  <data name="PASSWORD_INVALID" xml:space="preserve">
+    <value>A senha deve ter no mínimo 8 caracteres, contendo no mínimo uma letra maiúscula, uma letra minúscula, um número e um caractere especial(ex: !, @, #, $, *, .).</value>
+  </data>
   <data name="SERVICE_NOT_FOUND" xml:space="preserve">
     <value>Atendimento não encontrado.</value>
   </data>

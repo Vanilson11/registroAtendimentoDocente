@@ -123,6 +123,21 @@
   <data name="DATE_MEETING_EMPTY" xml:space="preserve">
     <value>The date of meeting is required.</value>
   </data>
+  <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
+    <value>E-mail already registered.</value>
+  </data>
+  <data name="EMAIL_EMPTY" xml:space="preserve">
+    <value>E-mail cannot be empty.</value>
+  </data>
+  <data name="EMAIL_INVALID" xml:space="preserve">
+    <value>E-mail invalid.</value>
+  </data>
+  <data name="NAME_USER_EMPTY" xml:space="preserve">
+    <value>Name user is required.</value>
+  </data>
+  <data name="PASSWORD_INVALID" xml:space="preserve">
+    <value>The password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character (e.g., !, @, #, $, , .).</value>
+  </data>
   <data name="SERVICE_NOT_FOUND" xml:space="preserve">
     <value>Service not found.</value>
   </data>

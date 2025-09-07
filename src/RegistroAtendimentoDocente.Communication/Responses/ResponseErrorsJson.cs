@@ -1,13 +1,13 @@
 ﻿namespace RegistroAtendimentoDocente.Communication.Responses;
-public class ResponseAtendimentoErrorJson
+public class ResponseErrorsJson
 {
     public List<string> ErrorMessages { get; set; }
-    public ResponseAtendimentoErrorJson(string errorMessage)
+    public ResponseErrorsJson(string errorMessage)
     {
         ErrorMessages = [errorMessage];
     }
 
-    public ResponseAtendimentoErrorJson(List<string> errorMessages)
+    public ResponseErrorsJson(List<string> errorMessages)
     {
         ErrorMessages = errorMessages;
     }

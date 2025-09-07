@@ -7,6 +7,7 @@ using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Servic
 using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.Reports.Excel;
 using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.Reports.Pdf;
 using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.Update;
+using RegistroAtendimentoDocente.Application.UseCases.Users.Register;
 
 namespace RegistroAtendimentoDocente.Application;
 public static class DependencyInjectionExtentions
@@ -31,5 +32,6 @@ public static class DependencyInjectionExtentions
         services.AddScoped<IUpdateAtendimentoUseCase, UpdateAtendimentoUseCase>();
         services.AddScoped<IReportFilterServicesByMonthUseCase, ReportFilterServicesByMonthUseCase>();
         services.AddScoped<IReportPdfServicesUseCase, ReportPdfServicesUseCase>();
+        services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
     }
 }

@@ -6,4 +6,5 @@ internal class RegistroAtendimentoDocenteDbContext : DbContext
 {
     public RegistroAtendimentoDocenteDbContext(DbContextOptions options) : base(options) { }
     public DbSet<Atendimento> Atendimentos { get; set; }
+    public DbSet<User> Users { get; set; }
 }

@@ -42,7 +42,7 @@ public class UpdateAtendimentoUseCase : IUpdateAtendimentoUseCase
         if(result.IsValid is false)
         {
             var errorMessages = result.Errors.Select(error => error.ErrorMessage).ToList();
-            var errorResponse = new ResponseAtendimentoErrorJson(errorMessages);
+            var errorResponse = new ResponseErrorsJson(errorMessages);
 
             throw new ErrorOnValidationException(errorMessages);
         }

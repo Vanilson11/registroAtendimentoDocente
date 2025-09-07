@@ -7,4 +7,6 @@ public class Atendimento
     public DateTime Data {  get; set; }
     public string? Encaminhamento {  get; set; }
     public string? Observacao { get; set; }
+    public long UserId { get; set; }
+    public User User { get; set; } = default!;
 }

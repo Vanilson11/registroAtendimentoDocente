@@ -23,14 +23,14 @@ public class ExceptionFilters : IExceptionFilter
     private void HandleExceptionProject(ExceptionContext context)
     {
         var registroAtendException = (RegistroAtendimentoDocenteException)context.Exception;
-        var errorResponse = new ResponseAtendimentoErrorJson(registroAtendException.GetErrors());
+        var errorResponse = new ResponseErrorsJson(registroAtendException.GetErrors());
 
         context.HttpContext.Response.StatusCode = registroAtendException.StatusCode;
         context.Result = new ObjectResult(errorResponse);
     }
 
     private void ThrowUnknowError(ExceptionContext context) {
-        var errorResponse = new ResponseAtendimentoErrorJson(ResourceErrorMessages.UNKNOW_ERROR);
+        var errorResponse = new ResponseErrorsJson(ResourceErrorMessages.UNKNOW_ERROR);
 
         context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
         context.Result = new ObjectResult(errorResponse);

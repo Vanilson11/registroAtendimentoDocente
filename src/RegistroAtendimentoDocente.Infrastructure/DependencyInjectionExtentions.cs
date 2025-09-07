@@ -3,8 +3,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RegistroAtendimentoDocente.Domain.Repositories;
 using RegistroAtendimentoDocente.Domain.Repositories.AtendimentoRepository;
+using RegistroAtendimentoDocente.Domain.Repositories.UsersRepository;
+using RegistroAtendimentoDocente.Domain.Security.Criptography;
 using RegistroAtendimentoDocente.Infrastructure.DataAccess;
 using RegistroAtendimentoDocente.Infrastructure.DataAccess.Repositories;
+using RegistroAtendimentoDocente.Infrastructure.DataAccess.Repositories.UsersRepositoy;
 
 namespace RegistroAtendimentoDocente.Infrastructure;
 public static class DependencyInjectionExtentions
@@ -13,6 +16,8 @@ public static class DependencyInjectionExtentions
     {
         AddDbContext(services, configuration);
         AddRepositories(services);
+
+        services.AddScoped<IPasswordEncripter, Security.Criptography.BCrypt>();
     }
 
     private static void AddRepositories(IServiceCollection services)
@@ -21,6 +26,8 @@ public static class DependencyInjectionExtentions
         services.AddScoped<IAtendimentosReadOnlyRepository, AtendimentoRepository>();
         services.AddScoped<IAtendimentoWriteOnlyRepository, AtendimentoRepository>();
         services.AddScoped<IAtendimentoUpdateOnlyUseCase, AtendimentoRepository>();
+        services.AddScoped<IReadOnlyUsersRepository, UsersRepository>();
+        services.AddScoped<IWriteOnlyUsersRepository, UsersRepository>();
     }
 
     private static void AddDbContext(IServiceCollection services, IConfiguration configuration)

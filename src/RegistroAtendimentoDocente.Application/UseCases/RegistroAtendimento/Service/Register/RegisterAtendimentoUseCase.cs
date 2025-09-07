@@ -40,7 +40,7 @@ public class RegisterAtendimentoUseCase : IRegisterAtendimentoUseCase
         if (result.IsValid == false)
         {
             var errorList = result.Errors.Select(erro => erro.ErrorMessage).ToList();
-            var errorResponse = new ResponseAtendimentoErrorJson(errorList);
+            var errorResponse = new ResponseErrorsJson(errorList);
 
             throw new ErrorOnValidationException(errorList);
         }

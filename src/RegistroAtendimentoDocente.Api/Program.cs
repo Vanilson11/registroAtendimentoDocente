@@ -2,6 +2,7 @@ using RegistroAtendimentoDocente.Api.Filters;
 using RegistroAtendimentoDocente.Api.Middlewares;
 using RegistroAtendimentoDocente.Application;
 using RegistroAtendimentoDocente.Infrastructure;
+using RegistroAtendimentoDocente.Infrastructure.Migrations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,4 +36,13 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+await MigrateDataBase();
+
 app.Run();
+
+async Task MigrateDataBase()
+{
+    using var scope = app.Services.CreateAsyncScope();
+
+    await DataBaseMigration.MigrateDataBase(scope.ServiceProvider);
+}
