@@ -5,9 +5,11 @@ using RegistroAtendimentoDocente.Domain.Repositories;
 using RegistroAtendimentoDocente.Domain.Repositories.AtendimentoRepository;
 using RegistroAtendimentoDocente.Domain.Repositories.UsersRepository;
 using RegistroAtendimentoDocente.Domain.Security.Criptography;
+using RegistroAtendimentoDocente.Domain.Security.Tokens;
 using RegistroAtendimentoDocente.Infrastructure.DataAccess;
 using RegistroAtendimentoDocente.Infrastructure.DataAccess.Repositories;
 using RegistroAtendimentoDocente.Infrastructure.DataAccess.Repositories.UsersRepositoy;
+using RegistroAtendimentoDocente.Infrastructure.Security.Tokens;
 
 namespace RegistroAtendimentoDocente.Infrastructure;
 public static class DependencyInjectionExtentions
@@ -16,6 +18,7 @@ public static class DependencyInjectionExtentions
     {
         AddDbContext(services, configuration);
         AddRepositories(services);
+        AddTokens(services, configuration);
 
         services.AddScoped<IPasswordEncripter, Security.Criptography.BCrypt>();
     }
@@ -36,5 +39,13 @@ public static class DependencyInjectionExtentions
         var serverVersion = new MySqlServerVersion(new Version(8, 0, 42));
 
         services.AddDbContext<RegistroAtendimentoDocenteDbContext>(config => config.UseMySql(connectionString, serverVersion));
+    }
+
+    private static void AddTokens(IServiceCollection services, IConfiguration configuration)
+    {
+        var signingKey = configuration.GetValue<string>("Settings:Jwt:SigningKey");
+        var expireMinutes = configuration.GetValue<uint>("Settings:Jwt:ExpiresMinues");
+
+        services.AddScoped<IAccessTokenGenerator>(config => new JwtTokenGenerator(expireMinutes, signingKey!));
     }
 }
