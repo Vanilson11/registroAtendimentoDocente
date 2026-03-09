@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.Reports.Excel;
-using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.Reports.Pdf;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Pdf;
+using RegistroAtendimentoDocente.Domain.Enums;
 using System.Net.Mime;
 
 namespace RegistroAtendimentoDocente.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-[Authorize]
+[Authorize(Roles = Roles.COORDENADOR)]
 public class ReportsController : ControllerBase
 {
     [HttpGet("excel")]

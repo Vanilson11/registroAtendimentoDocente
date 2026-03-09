@@ -4,7 +4,7 @@ using System.Net;
 namespace RegistroAtendimentoDocente.Exception.ExceptionsBase;
 public class InvalidLoginException : RegistroAtendimentoDocenteException
 {
-    public InvalidLoginException() : base(ResourceErrorMessages.INVALID_LOGIN)
+    public InvalidLoginException(string message) : base(message)
     {
         
     }

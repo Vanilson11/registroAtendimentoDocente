@@ -115,6 +115,24 @@ namespace RegistroAtendimentoDocente.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Name cannot have more than one hundred characters..
+        /// </summary>
+        public static string NAME_MAX_CHARACTERS {
+            get {
+                return ResourceManager.GetString("NAME_MAX_CHARACTERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Name cannot have less than two characters..
+        /// </summary>
+        public static string NAME_MIN_CHARACTERS {
+            get {
+                return ResourceManager.GetString("NAME_MIN_CHARACTERS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Name user is required..
         /// </summary>
         public static string NAME_USER_EMPTY {

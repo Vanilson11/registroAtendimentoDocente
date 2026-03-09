@@ -3,7 +3,9 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using RegistroAtendimentoDocente.Api.Filters;
 using RegistroAtendimentoDocente.Api.Middlewares;
+using RegistroAtendimentoDocente.Api.Tokens;
 using RegistroAtendimentoDocente.Application;
+using RegistroAtendimentoDocente.Domain.Security.Tokens;
 using RegistroAtendimentoDocente.Infrastructure;
 using RegistroAtendimentoDocente.Infrastructure.Migrations;
 using System.Text;
@@ -69,6 +71,10 @@ builder.Services.AddAuthentication(config =>
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(signingKey!))
     };
 });
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddScoped<ITokenProvider, HttpContextTokenValue>();
 
 var app = builder.Build();
 

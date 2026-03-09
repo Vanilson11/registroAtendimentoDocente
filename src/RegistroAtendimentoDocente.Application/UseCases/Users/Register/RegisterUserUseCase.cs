@@ -4,7 +4,7 @@ using RegistroAtendimentoDocente.Communication.Requests;
 using RegistroAtendimentoDocente.Communication.Responses;
 using RegistroAtendimentoDocente.Domain.Entities;
 using RegistroAtendimentoDocente.Domain.Repositories;
-using RegistroAtendimentoDocente.Domain.Repositories.UsersRepository;
+using RegistroAtendimentoDocente.Domain.Repositories.Users;
 using RegistroAtendimentoDocente.Domain.Security.Criptography;
 using RegistroAtendimentoDocente.Domain.Security.Tokens;
 using RegistroAtendimentoDocente.Exception;

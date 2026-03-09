@@ -1,13 +1,13 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RegistroAtendimentoDocente.Application.AutoMapper;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Delete;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.GetAll;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.GetById;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Register;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Pdf;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Update;
 using RegistroAtendimentoDocente.Application.UseCases.Login.DoLogin;
-using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.Delete;
-using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.GetAll;
-using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.GetById;
-using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.Register;
-using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.Reports.Excel;
-using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.Reports.Pdf;
-using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.Update;
 using RegistroAtendimentoDocente.Application.UseCases.Users.Register;
 
 namespace RegistroAtendimentoDocente.Application;

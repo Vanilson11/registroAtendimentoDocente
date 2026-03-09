@@ -1,6 +1,6 @@
-﻿using CommonTestUtilities;
-using CommonTestUtilities.Entities;
+﻿using CommonTestUtilities.Entities;
 using CommonTestUtilities.Requests;
+using CommonTestUtilities.Security.Tokens;
 using RegistroAtendimentoDocente.Application.UseCases.Login.DoLogin;
 using RegistroAtendimentoDocente.Communication.Requests;
 using RegistroAtendimentoDocente.Domain.Entities;

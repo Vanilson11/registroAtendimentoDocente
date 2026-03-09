@@ -1,5 +1,8 @@
-﻿using CommonTestUtilities;
+﻿using CommonTestUtilities.AutoMapper;
+using CommonTestUtilities.Repositories;
+using CommonTestUtilities.Repositories.Users;
 using CommonTestUtilities.Requests;
+using CommonTestUtilities.Security.Tokens;
 using RegistroAtendimentoDocente.Application.UseCases.Users.Register;
 using RegistroAtendimentoDocente.Communication.Requests;
 using RegistroAtendimentoDocente.Exception;

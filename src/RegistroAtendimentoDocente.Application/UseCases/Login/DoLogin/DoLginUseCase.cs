@@ -1,8 +1,9 @@
 ﻿using RegistroAtendimentoDocente.Communication.Requests;
 using RegistroAtendimentoDocente.Communication.Responses;
-using RegistroAtendimentoDocente.Domain.Repositories.UsersRepository;
+using RegistroAtendimentoDocente.Domain.Repositories.Users;
 using RegistroAtendimentoDocente.Domain.Security.Criptography;
 using RegistroAtendimentoDocente.Domain.Security.Tokens;
+using RegistroAtendimentoDocente.Exception;
 using RegistroAtendimentoDocente.Exception.ExceptionsBase;
 
 namespace RegistroAtendimentoDocente.Application.UseCases.Login.DoLogin;
@@ -24,14 +25,14 @@ public class DoLginUseCase : IDoLginUseCase
 
         if(user is null)
         {
-            throw new InvalidLoginException();
+            throw new InvalidLoginException(ResourceErrorMessages.INVALID_LOGIN);
         }
 
         var passwordMatch = _passwordEncripter.Verify(request.Password, user.Password);
 
         if(passwordMatch is false)
         {
-            throw new InvalidLoginException();
+            throw new InvalidLoginException(ResourceErrorMessages.INVALID_LOGIN);
         }
 
         return new ResponseRegisterUserJson

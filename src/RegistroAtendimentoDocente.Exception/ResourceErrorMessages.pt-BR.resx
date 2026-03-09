@@ -126,8 +126,20 @@
   <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
     <value>E-mail já está sendo utlizado.</value>
   </data>
+  <data name="EMAIL_EMPTY" xml:space="preserve">
+    <value>E-mail não pode ser vazio.</value>
+  </data>
+  <data name="EMAIL_INVALID" xml:space="preserve">
+    <value>E-mail inválido.</value>
+  </data>
   <data name="INVALID_LOGIN" xml:space="preserve">
     <value>E-mail ou senha inválido.</value>
+  </data>
+  <data name="NAME_MAX_CHARACTERS" xml:space="preserve">
+    <value>Nome não pode ter mais de cem caracteres.</value>
+  </data>
+  <data name="NAME_MIN_CHARACTERS" xml:space="preserve">
+    <value>Nome não pode ter menos de dois caracteres.</value>
   </data>
   <data name="NAME_USER_EMPTY" xml:space="preserve">
     <value>Nome do usuário é obrigatório</value>

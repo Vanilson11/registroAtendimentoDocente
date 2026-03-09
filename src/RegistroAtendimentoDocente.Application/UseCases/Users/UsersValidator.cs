@@ -7,13 +7,16 @@ public class UsersValidator : AbstractValidator<RequestRegisterUserJson>
 {
     public UsersValidator()
     {
-        RuleFor(user => user.Name).NotEmpty().WithMessage(ResourceErrorMessages.NAME_USER_EMPTY);
-        RuleFor(user => user.Email)
+        RuleFor(request => request.Name).NotEmpty().WithMessage(ResourceErrorMessages.NAME_USER_EMPTY)
+            .MinimumLength(2).WithMessage(ResourceErrorMessages.NAME_MIN_CHARACTERS)
+            .When(request => string.IsNullOrWhiteSpace(request.Name) == false, ApplyConditionTo.CurrentValidator)
+            .MaximumLength(100).WithMessage(ResourceErrorMessages.NAME_MAX_CHARACTERS);
+        RuleFor(request => request.Email)
             .NotEmpty().WithMessage(ResourceErrorMessages.EMAIL_EMPTY)
             .EmailAddress()
-            .When(user => string.IsNullOrWhiteSpace(user.Email) == false, ApplyConditionTo.CurrentValidator)
+            .When(request => string.IsNullOrWhiteSpace(request.Email) == false, ApplyConditionTo.CurrentValidator)
             .WithMessage(ResourceErrorMessages.EMAIL_INVALID);
 
-        RuleFor(user => user.Password).SetValidator(new PasswordValidator<RequestRegisterUserJson>());
+        RuleFor(request => request.Password).SetValidator(new PasswordValidator<RequestRegisterUserJson>());
     }
 }

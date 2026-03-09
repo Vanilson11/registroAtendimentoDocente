@@ -135,6 +135,12 @@
   <data name="INVALID_LOGIN" xml:space="preserve">
     <value>E-mail or password invalid.</value>
   </data>
+  <data name="NAME_MAX_CHARACTERS" xml:space="preserve">
+    <value>Name cannot have more than one hundred characters.</value>
+  </data>
+  <data name="NAME_MIN_CHARACTERS" xml:space="preserve">
+    <value>Name cannot have less than two characters.</value>
+  </data>
   <data name="NAME_USER_EMPTY" xml:space="preserve">
     <value>Name user is required.</value>
   </data>

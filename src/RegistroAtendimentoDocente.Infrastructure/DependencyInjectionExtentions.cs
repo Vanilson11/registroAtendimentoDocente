@@ -2,14 +2,16 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RegistroAtendimentoDocente.Domain.Repositories;
-using RegistroAtendimentoDocente.Domain.Repositories.AtendimentoRepository;
-using RegistroAtendimentoDocente.Domain.Repositories.UsersRepository;
+using RegistroAtendimentoDocente.Domain.Repositories.Atendimentos;
+using RegistroAtendimentoDocente.Domain.Repositories.Users;
 using RegistroAtendimentoDocente.Domain.Security.Criptography;
 using RegistroAtendimentoDocente.Domain.Security.Tokens;
+using RegistroAtendimentoDocente.Domain.Services.LoggedUser;
 using RegistroAtendimentoDocente.Infrastructure.DataAccess;
-using RegistroAtendimentoDocente.Infrastructure.DataAccess.Repositories;
-using RegistroAtendimentoDocente.Infrastructure.DataAccess.Repositories.UsersRepositoy;
+using RegistroAtendimentoDocente.Infrastructure.DataAccess.Repositories.Atendimentos;
+using RegistroAtendimentoDocente.Infrastructure.DataAccess.Repositories.Users;
 using RegistroAtendimentoDocente.Infrastructure.Security.Tokens;
+using RegistroAtendimentoDocente.Infrastructure.Services.LoggedUser;
 
 namespace RegistroAtendimentoDocente.Infrastructure;
 public static class DependencyInjectionExtentions
@@ -25,6 +27,7 @@ public static class DependencyInjectionExtentions
         AddTokens(services, configuration);
 
         services.AddScoped<IPasswordEncripter, Security.Criptography.BCrypt>();
+        services.AddScoped<ILoggedUser, LoggedUser>();
     }
 
     private static void AddRepositories(IServiceCollection services)

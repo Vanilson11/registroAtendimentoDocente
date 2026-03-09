@@ -40,7 +40,36 @@ public class UsersValidatorTests
         var result = validator.Validate(request);
 
         result.IsValid.ShouldBeFalse();
-        result.Errors.Single().ShouldSatisfyAllConditions(erro => erro.ErrorMessage.Equals(ResourceErrorMessages.NAME_USER_EMPTY));
+        result.Errors.Single()
+            .ShouldSatisfyAllConditions(erro => erro.ErrorMessage.Equals(ResourceErrorMessages.NAME_USER_EMPTY));
+    }
+
+    [Fact]
+    public void Error_Name_Less_Than_Two_Characters()
+    {
+        var request = CreateRequest();
+        request.Name = "a";
+        var validator = CreateValidator();
+
+        var result = validator.Validate(request);
+
+        result.IsValid.ShouldBeFalse();
+        result.Errors.Single()
+            .ShouldSatisfyAllConditions(erro => erro.ErrorMessage.Equals(ResourceErrorMessages.NAME_MIN_CHARACTERS));
+    }
+
+    [Fact]
+    public void Error_Name_More_Than_One_Hundred_Characters()
+    {
+        var request = CreateRequest();
+        request.Name = new string('A', 101);
+        var validator = CreateValidator();
+
+        var result = validator.Validate(request);
+
+        result.IsValid.ShouldBeFalse();
+        result.Errors.Single()
+            .ShouldSatisfyAllConditions(erro => erro.ErrorMessage.Equals(ResourceErrorMessages.NAME_MAX_CHARACTERS));
     }
 
     [Theory]
