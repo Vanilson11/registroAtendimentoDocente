@@ -10,13 +10,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="RegistroAtendimento\**" />
-    <EmbeddedResource Remove="RegistroAtendimento\**" />
-    <None Remove="RegistroAtendimento\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.21" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="Shouldly" Version="4.3.0" />
     <PackageReference Include="xunit" Version="2.5.3" />
@@ -24,7 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\RegistroAtendimentoDocente.Application\RegistroAtendimentoDocente.Application.csproj" />
+    <ProjectReference Include="..\..\src\RegistroAtendimentoDocente.Api\RegistroAtendimentoDocente.Api.csproj" />
+    <ProjectReference Include="..\..\src\RegistroAtendimentoDocente.Infrastructure\RegistroAtendimentoDocente.Infrastructure.csproj" />
     <ProjectReference Include="..\CommonTestUtilities\CommonTestUtilities.csproj" />
   </ItemGroup>
 

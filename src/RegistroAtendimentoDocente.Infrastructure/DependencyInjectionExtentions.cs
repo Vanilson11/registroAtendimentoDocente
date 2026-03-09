@@ -16,7 +16,11 @@ public static class DependencyInjectionExtentions
 {
     public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        AddDbContext(services, configuration);
+        if(configuration.IsTestEnvironment() == false)
+        {
+            AddDbContext(services, configuration);
+        }
+        
         AddRepositories(services);
         AddTokens(services, configuration);
 

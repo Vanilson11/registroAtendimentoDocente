@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RegistroAtendimentoDocente.Application.AutoMapper;
+using RegistroAtendimentoDocente.Application.UseCases.Login.DoLogin;
 using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.Delete;
 using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.GetAll;
 using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.GetById;
@@ -33,5 +34,6 @@ public static class DependencyInjectionExtentions
         services.AddScoped<IReportFilterServicesByMonthUseCase, ReportFilterServicesByMonthUseCase>();
         services.AddScoped<IReportPdfServicesUseCase, ReportPdfServicesUseCase>();
         services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
+        services.AddScoped<IDoLginUseCase, DoLginUseCase>();
     }
 }

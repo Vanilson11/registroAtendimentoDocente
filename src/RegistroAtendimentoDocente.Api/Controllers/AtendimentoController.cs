@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.Delete;
 using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.GetAll;
 using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento.Service.GetById;
@@ -11,6 +12,7 @@ namespace RegistroAtendimentoDocente.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class AtendimentoController : ControllerBase
 {
     [HttpGet]

@@ -3,7 +3,7 @@ using RegistroAtendimentoDocente.Application.UseCases.RegistroAtendimento;
 using RegistroAtendimentoDocente.Exception;
 using Shouldly;
 
-namespace Validator.Tests;
+namespace Validator.Tests.UseCases.RegistroAtendimento.Service.Register;
 public class RegisterAtendimentoUseCaseValidatorTest
 {
     [Fact]

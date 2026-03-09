@@ -10,12 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="RegistroAtendimento\**" />
-    <EmbeddedResource Remove="RegistroAtendimento\**" />
-    <None Remove="RegistroAtendimento\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="Shouldly" Version="4.3.0" />
@@ -25,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\RegistroAtendimentoDocente.Application\RegistroAtendimentoDocente.Application.csproj" />
+    <ProjectReference Include="..\..\src\RegistroAtendimentoDocente.Communication\RegistroAtendimentoDocente.Communication.csproj" />
     <ProjectReference Include="..\CommonTestUtilities\CommonTestUtilities.csproj" />
   </ItemGroup>
 
