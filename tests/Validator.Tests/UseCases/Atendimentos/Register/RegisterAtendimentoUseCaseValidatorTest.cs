@@ -10,7 +10,7 @@ public class RegisterAtendimentoUseCaseValidatorTest
     public void Success()
     {
         var validator = new AtendimentoUseCaseValidator();
-        var request = new RequestRegisterAtendimentoJsonBuilder().Build();
+        var request = RequestRegisterAtendimentoJsonBuilder.Build();
 
         var result = validator.Validate(request);
 
@@ -24,7 +24,7 @@ public class RegisterAtendimentoUseCaseValidatorTest
     public void Error_Teacher_Name_Empty(string teacher)
     {
         var validator = new AtendimentoUseCaseValidator();
-        var request = new RequestRegisterAtendimentoJsonBuilder().Build();
+        var request = RequestRegisterAtendimentoJsonBuilder.Build();
         request.Docente = teacher;
 
         var result = validator.Validate(request);
@@ -37,7 +37,7 @@ public class RegisterAtendimentoUseCaseValidatorTest
     public void Error_Name_Less_Than_Two_Characters()
     {
         var validator = new AtendimentoUseCaseValidator();
-        var request = new RequestRegisterAtendimentoJsonBuilder().Build();
+        var request = RequestRegisterAtendimentoJsonBuilder.Build();
         request.Docente = "a";
 
         var result = validator.Validate(request);
@@ -50,7 +50,7 @@ public class RegisterAtendimentoUseCaseValidatorTest
     public void Error_Name_More_Than_One_Hundred_Characters()
     {
         var validator = new AtendimentoUseCaseValidator();
-        var request = new RequestRegisterAtendimentoJsonBuilder().Build();
+        var request = RequestRegisterAtendimentoJsonBuilder.Build();
         request.Docente = new string('A', 101);
 
         var result = validator.Validate(request);
@@ -66,7 +66,7 @@ public class RegisterAtendimentoUseCaseValidatorTest
     public void Error_Assunto_Empty(string assunto)
     {
         var validator = new AtendimentoUseCaseValidator();
-        var request = new RequestRegisterAtendimentoJsonBuilder().Build();
+        var request = RequestRegisterAtendimentoJsonBuilder.Build();
         request.Assunto = assunto;
 
         var result = validator.Validate(request);
@@ -79,7 +79,7 @@ public class RegisterAtendimentoUseCaseValidatorTest
     public void Error_Date_Invalid()
     {
         var validator = new AtendimentoUseCaseValidator();
-        var request = new RequestRegisterAtendimentoJsonBuilder().Build();
+        var request = RequestRegisterAtendimentoJsonBuilder.Build();
         request.Data = DateTime.UtcNow.AddDays(1);
 
         var result = validator.Validate(request);

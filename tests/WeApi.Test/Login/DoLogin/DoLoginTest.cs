@@ -4,26 +4,22 @@ using RegistroAtendimentoDocente.Exception;
 using Shouldly;
 using System.Globalization;
 using System.Net;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
 using System.Text.Json;
 using WeApi.Test.InlineData;
 
 namespace WeApi.Test.Login.DoLogin;
-public class DoLoginTest : IClassFixture<CustomWebApplicationFactory>
+public class DoLoginTest : RegistroAtendimentoDocenteClassFixture
 {
-    private readonly HttpClient _httpClient;
     private const string METHOD = "api/login";
     private readonly string _email;
     private readonly string _password;
     private readonly string _name;
 
-    public DoLoginTest(CustomWebApplicationFactory webApplicationFactory)
+    public DoLoginTest(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
     {
-        _httpClient = webApplicationFactory.CreateClient();
-        _email = webApplicationFactory.GetEmail();
-        _password = webApplicationFactory.GetPassword();
-        _name = webApplicationFactory.GetName();
+        _email = webApplicationFactory.User_Others.GetEmail();
+        _password = webApplicationFactory.User_Others.GetPassword();
+        _name = webApplicationFactory.User_Others.GetName();
     }
 
     [Fact]
@@ -35,7 +31,7 @@ public class DoLoginTest : IClassFixture<CustomWebApplicationFactory>
             Password = _password
         };
 
-        var result = await _httpClient.PostAsJsonAsync(METHOD, request);
+        var result = await DoPost(requestUri: METHOD, request: request);
 
         result.StatusCode.ShouldBe(HttpStatusCode.OK);
 
@@ -54,9 +50,7 @@ public class DoLoginTest : IClassFixture<CustomWebApplicationFactory>
         var request = RequestDoLoginJsonBuilder.Build();
         request.Email = _email;
 
-        _httpClient.DefaultRequestHeaders.AcceptLanguage.Add(new StringWithQualityHeaderValue(cultureInfo));
-
-        var result = await _httpClient.PostAsJsonAsync(METHOD, request);
+        var result = await DoPost(requestUri: METHOD, request: request, culture: cultureInfo);
 
         result.StatusCode.ShouldBe(HttpStatusCode.Unauthorized);
 
@@ -64,10 +58,11 @@ public class DoLoginTest : IClassFixture<CustomWebApplicationFactory>
 
         var response = await JsonDocument.ParseAsync(body);
 
-        var errors = response.RootElement.GetProperty("errorMessages").EnumerateArray();
+        var errors = response.RootElement.GetProperty("errorMessages").EnumerateArray()
+            .Select(error => error.GetString()).ToList();
 
         var expectedMessage = ResourceErrorMessages.ResourceManager.GetString("INVALID_LOGIN", new CultureInfo(cultureInfo));
 
-        errors.Single().ShouldSatisfyAllConditions(error => error.GetString().ShouldBe(expectedMessage));
+        errors.Single().ShouldSatisfyAllConditions(error => error.ShouldBe(expectedMessage));
     }
 }

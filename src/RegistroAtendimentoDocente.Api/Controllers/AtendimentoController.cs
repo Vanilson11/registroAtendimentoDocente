@@ -10,7 +10,7 @@ using RegistroAtendimentoDocente.Communication.Responses;
 
 namespace RegistroAtendimentoDocente.Api.Controllers;
 
-[Route("api/[controller]")]
+[Route("[controller]")]
 [ApiController]
 [Authorize]
 public class AtendimentoController : ControllerBase

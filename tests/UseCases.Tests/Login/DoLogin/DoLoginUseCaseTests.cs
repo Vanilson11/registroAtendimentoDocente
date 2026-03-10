@@ -1,5 +1,7 @@
 ﻿using CommonTestUtilities.Entities;
+using CommonTestUtilities.Repositories.Users;
 using CommonTestUtilities.Requests;
+using CommonTestUtilities.Security.Cryptograph;
 using CommonTestUtilities.Security.Tokens;
 using RegistroAtendimentoDocente.Application.UseCases.Login.DoLogin;
 using RegistroAtendimentoDocente.Communication.Requests;

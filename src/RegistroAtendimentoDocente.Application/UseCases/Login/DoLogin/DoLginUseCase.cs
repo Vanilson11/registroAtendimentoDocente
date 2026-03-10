@@ -38,7 +38,7 @@ public class DoLginUseCase : IDoLginUseCase
         return new ResponseRegisterUserJson
         {
             Name = user.Name,
-            Token = _accessTokenGenerator.Genetate(user)
+            Token = _accessTokenGenerator.Generate(user)
         };
     }
 }

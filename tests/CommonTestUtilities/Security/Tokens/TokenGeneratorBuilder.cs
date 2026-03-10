@@ -9,7 +9,7 @@ public class TokenGeneratorBuilder
     {
         var mock = new Mock<IAccessTokenGenerator>();
 
-        mock.Setup(tokenGenerator => tokenGenerator.Genetate(It.IsAny<User>())).Returns("token_teste");
+        mock.Setup(tokenGenerator => tokenGenerator.Generate(It.IsAny<User>())).Returns("token_teste");
 
         return mock.Object;
     }
