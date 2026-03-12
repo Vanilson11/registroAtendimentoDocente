@@ -11,4 +11,6 @@ public class AtendimentoIdentityManager
     }
 
     public long GetId() => _atendimento.Id;
+    public Atendimento GetAtendimento() => _atendimento;
+    public DateTime GetData() => _atendimento.Data;
 }

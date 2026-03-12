@@ -19,6 +19,30 @@ public class RegistroAtendimentoDocenteClassFixture : IClassFixture<CustomWebApp
         return await _httpClient.PostAsJsonAsync(requestUri, request);
     }
 
+    public async Task<HttpResponseMessage> DoPut(string requestUri, object request, string token = "", string culture = "en")
+    {
+        AuthorizeRequest(token);
+        SetCulture(culture);
+
+        return await _httpClient.PutAsJsonAsync(requestUri, request);
+    }
+
+    public async Task<HttpResponseMessage> DoGet(string requestUri, string token = "", string culture = "en")
+    {
+        AuthorizeRequest(token);
+        SetCulture(culture);
+
+        return await _httpClient.GetAsync(requestUri);
+    }
+
+    public async Task<HttpResponseMessage> DoDelete(string requestUri, string token = "", string culture = "en")
+    {
+        AuthorizeRequest(token);
+        SetCulture(culture);
+
+        return await _httpClient.DeleteAsync(requestUri);
+    }
+
     private void AuthorizeRequest(string token)
     {
         if(string.IsNullOrWhiteSpace(token) == false)

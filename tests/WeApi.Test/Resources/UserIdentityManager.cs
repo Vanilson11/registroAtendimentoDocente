@@ -18,4 +18,6 @@ public class UserIdentityManager
     public string GetPassword() => _password;
     public string GetEmail() => _user.Email;
     public string GetToken() => _token;
+    public long GetId() => _user.Id;
+    public User GetUser() => _user;
 }

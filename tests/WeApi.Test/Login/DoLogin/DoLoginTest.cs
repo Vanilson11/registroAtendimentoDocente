@@ -10,7 +10,7 @@ using WeApi.Test.InlineData;
 namespace WeApi.Test.Login.DoLogin;
 public class DoLoginTest : RegistroAtendimentoDocenteClassFixture
 {
-    private const string METHOD = "api/login";
+    private const string METHOD = "login";
     private readonly string _email;
     private readonly string _password;
     private readonly string _name;

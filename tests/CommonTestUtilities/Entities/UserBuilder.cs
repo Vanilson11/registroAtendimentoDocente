@@ -5,6 +5,25 @@ using RegistroAtendimentoDocente.Domain.Enums;
 namespace CommonTestUtilities.Entities;
 public class UserBuilder
 {
+    public static List<User> Collection(uint count = 2)
+    {
+        var list = new List<User>();
+
+        if (count == 0) count = 1;
+
+        var userId = 1;
+
+        for(int i = 0; i < count; i++)
+        {
+            var user = Build();
+
+            user.Id = userId++;
+
+            list.Add(user);
+        }
+
+        return list;
+    }
     public static User Build(string role = Roles.COORDENADOR)
     {
         return new Faker<User>()

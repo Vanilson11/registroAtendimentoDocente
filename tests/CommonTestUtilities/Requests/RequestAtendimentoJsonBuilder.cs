@@ -2,7 +2,7 @@
 using RegistroAtendimentoDocente.Communication.Requests;
 
 namespace CommonTestUtilities.Requests;
-public class RequestRegisterAtendimentoJsonBuilder
+public class RequestAtendimentoJsonBuilder
 {
     public static RequestAtendimentoJson Build()
     {

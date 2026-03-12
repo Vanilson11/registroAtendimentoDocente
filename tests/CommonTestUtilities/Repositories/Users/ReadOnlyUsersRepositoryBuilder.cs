@@ -12,7 +12,7 @@ public class ReadOnlyUsersRepositoryBuilder
         _repository = new Mock<IReadOnlyUsersRepository>();
     }
 
-    public ReadOnlyUsersRepositoryBuilder ExistActiveUserWithEmail(string email)
+    public ReadOnlyUsersRepositoryBuilder ExistActiveUserWithEmail(string? email)
     {
         if(string.IsNullOrWhiteSpace(email) == false)
         {
@@ -28,6 +28,23 @@ public class ReadOnlyUsersRepositoryBuilder
         {
             _repository.Setup(readOnlyUsers => readOnlyUsers.GetByEmail(user.Email)).ReturnsAsync(user);
         }
+
+        return this;
+    }
+
+    public ReadOnlyUsersRepositoryBuilder GetById(User? user)
+    {
+        if(user is not null)
+        {
+            _repository.Setup(readOnlyUsers => readOnlyUsers.GetById(It.IsAny<long>())).ReturnsAsync(user);
+        }
+        
+        return this;
+    }
+
+    public ReadOnlyUsersRepositoryBuilder GetAll(List<User> users)
+    {
+        _repository.Setup(readOnlyUsers => readOnlyUsers.GetAll()).ReturnsAsync(users);
 
         return this;
     }

@@ -5,12 +5,12 @@ using RegistroAtendimentoDocente.Domain.Repositories.Atendimentos;
 using RegistroAtendimentoDocente.Domain.Services.LoggedUser;
 
 namespace RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel;
-public class ReportFilterServicesByMonthUseCase : IReportFilterServicesByMonthUseCase
+public class ReportExcelServicesUseCase : IReportExcelServicesUseCase
 {
     private readonly IAtendimentosReadOnlyRepository _repository;
     private readonly ILoggedUser _loggedUser;
 
-    public ReportFilterServicesByMonthUseCase(IAtendimentosReadOnlyRepository repository, ILoggedUser loggedUser)
+    public ReportExcelServicesUseCase(IAtendimentosReadOnlyRepository repository, ILoggedUser loggedUser)
     {
         _repository = repository;
         _loggedUser = loggedUser;

@@ -7,17 +7,19 @@ using System.Net.Mime;
 
 namespace RegistroAtendimentoDocente.Api.Controllers;
 
-[Route("api/[controller]")]
+[Route("[controller]")]
 [ApiController]
 [Authorize(Roles = Roles.COORDENADOR)]
+//ideia: adm poder gerar relatório de todos os atendimentos de todos os coordenadores
+//e poder gerar relatório de todos os atendimentos de um coordenador específico
 public class ReportsController : ControllerBase
 {
     [HttpGet("excel")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> GetReportServicesExcel(
-        [FromServices] IReportFilterServicesByMonthUseCase useCase,
-        [FromHeader] DateOnly month
+        [FromServices] IReportExcelServicesUseCase useCase,
+        [FromQuery] DateOnly month
         )
     {
         byte[] file = await useCase.Execute(month);
@@ -33,7 +35,7 @@ public class ReportsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     public async Task<IActionResult> GetReportServicesPdf(
         [FromServices] IReportPdfServicesUseCase useCase,
-        [FromHeader] DateOnly month
+        [FromQuery] DateOnly month
         )
     {
         byte[] file = await useCase.Execute(month);

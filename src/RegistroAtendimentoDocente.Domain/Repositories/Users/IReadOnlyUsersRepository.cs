@@ -3,6 +3,8 @@
 namespace RegistroAtendimentoDocente.Domain.Repositories.Users;
 public interface IReadOnlyUsersRepository
 {
-    Task<bool> ExistActiveUserWithEmail(string email);
+    Task<List<User>> GetAll();
+    Task<User?> GetById(long id);
     Task<User?> GetByEmail(string email);
+    Task<bool> ExistActiveUserWithEmail(string email);
 }

@@ -38,6 +38,7 @@ public static class DependencyInjectionExtentions
         services.AddScoped<IAtendimentoUpdateOnlyUseCase, AtendimentoRepository>();
         services.AddScoped<IReadOnlyUsersRepository, UsersRepository>();
         services.AddScoped<IWriteOnlyUsersRepository, UsersRepository>();
+        services.AddScoped<IUpdateOnlyUsersRepository, UsersRepository>();
     }
 
     private static void AddDbContext(IServiceCollection services, IConfiguration configuration)

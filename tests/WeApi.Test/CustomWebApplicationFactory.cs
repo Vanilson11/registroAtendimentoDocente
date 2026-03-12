@@ -48,11 +48,11 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         Atendimento_Others = new AtendimentoIdentityManager(atendimentoUser);
 
         var userCoordenador = AddUserCoordenador(context, passwordEncripter, tokenGenerator);
-        var atendimentoCoordenador = AddAtendimento(user, context, atendimentoId: 2);
+        var atendimentoCoordenador = AddAtendimento(userCoordenador, context, atendimentoId: 2);
         Atendimento_Coordenador = new AtendimentoIdentityManager(atendimentoCoordenador);
 
         var userAdmin = AddUserAdmin(context, passwordEncripter, tokenGenerator);
-        var atendimentoAdmin = AddAtendimento(user, context, atendimentoId: 3);
+        var atendimentoAdmin = AddAtendimento(userAdmin, context, atendimentoId: 3);
         Atendimento_Admin = new AtendimentoIdentityManager(atendimentoAdmin);
 
         context.SaveChanges();

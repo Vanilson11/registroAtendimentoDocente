@@ -150,6 +150,12 @@
   <data name="PASSWORD_INVALID" xml:space="preserve">
     <value>A senha deve ter no mínimo 8 caracteres, contendo no mínimo uma letra maiúscula, uma letra minúscula, um número e um caractere especial(ex: !, @, #, $, *, .).</value>
   </data>
+  <data name="ROLE_EMPTY" xml:space="preserve">
+    <value>A permissão do usuário é obrigatória.</value>
+  </data>
+  <data name="ROLE_INVALID" xml:space="preserve">
+    <value>Permissão inválida.</value>
+  </data>
   <data name="SERVICE_NOT_FOUND" xml:space="preserve">
     <value>Atendimento não encontrado.</value>
   </data>
@@ -161,5 +167,11 @@
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Erro desconhecido.</value>
+  </data>
+  <data name="USER_ALREADY_REGISTERED" xml:space="preserve">
+    <value>Usuário já registrado.</value>
+  </data>
+  <data name="USER_NOT_FOUND" xml:space="preserve">
+    <value>Usuário não encontrado.</value>
   </data>
 </root>

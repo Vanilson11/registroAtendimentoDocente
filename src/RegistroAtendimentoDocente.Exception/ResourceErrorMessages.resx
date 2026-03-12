@@ -150,6 +150,12 @@
   <data name="PASSWORD_INVALID" xml:space="preserve">
     <value>The password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character (e.g., !, @, #, $, , .).</value>
   </data>
+  <data name="ROLE_EMPTY" xml:space="preserve">
+    <value>Role off the user is required.</value>
+  </data>
+  <data name="ROLE_INVALID" xml:space="preserve">
+    <value>Role invalid.</value>
+  </data>
   <data name="SERVICE_NOT_FOUND" xml:space="preserve">
     <value>Service not found.</value>
   </data>
@@ -161,5 +167,11 @@
   </data>
   <data name="UNKNOW_ERROR" xml:space="preserve">
     <value>Unknow error.</value>
+  </data>
+  <data name="USER_ALREADY_REGISTERED" xml:space="preserve">
+    <value>User already registered.</value>
+  </data>
+  <data name="USER_NOT_FOUND" xml:space="preserve">
+    <value>User not found.</value>
   </data>
 </root>

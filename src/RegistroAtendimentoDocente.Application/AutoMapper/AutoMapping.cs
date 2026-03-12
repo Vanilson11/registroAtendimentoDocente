@@ -14,7 +14,8 @@ public class AutoMapping : Profile
 
     private void RequestToEntity()
     {
-        CreateMap<RequestAtendimentoJson, Atendimento>();
+        CreateMap<RequestAtendimentoJson, Atendimento>()
+            .ForMember(dest => dest.Docente, config => config.MapFrom(source => source.Docente));
         CreateMap<RequestRegisterUserJson, User>()
             .ForMember(dest => dest.Password, config => config.Ignore());
     }
@@ -24,5 +25,7 @@ public class AutoMapping : Profile
         CreateMap<Atendimento, ResponseRegisterAtendimentoJson>();
         CreateMap<Atendimento, ResponseShortAtendimentosJson>();
         CreateMap<Atendimento, ResponseAtendimentoJson>();
+        CreateMap<User, ResponseShortUserJson>();
+        CreateMap<User, ResponseUserJson>();
     }
 }

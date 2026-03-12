@@ -24,11 +24,11 @@ namespace RegistroAtendimentoDocente.Infrastructure.Migrations
 
             modelBuilder.Entity("RegistroAtendimentoDocente.Domain.Entities.Atendimento", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<long>("Id"));
 
                     b.Property<string>("Assunto")
                         .IsRequired()
@@ -86,7 +86,7 @@ namespace RegistroAtendimentoDocente.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("RegistroAtendimentoDocente.Domain.Entities.Atendimento", b =>

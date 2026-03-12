@@ -9,7 +9,7 @@ using WeApi.Test.InlineData;
 namespace WeApi.Test.UseCases.Users.Register;
 public class RegisterUserTests : RegistroAtendimentoDocenteClassFixture
 {
-    private const string METHOD = "api/users";
+    private const string METHOD = "users";
     private readonly string _email;
 
     public RegisterUserTests(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
