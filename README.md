@@ -1,13 +1,41 @@
 # Sistema de Gerenciamento de Atendimentos Docentes
 
 ## 📌 Sobre o Projeto
-Esta API, desenvolvida utilizando .NET 8, adota os princípios do Domain-Driven Design (DDD) para oferecer uma solução estruturada e eficaz no gerenciamento de registros de atendimentos docentes realizados por coordenadores pedagógicos. O principal objetivo é permitir que os usuários (coordenadores pedagógicos) registrem seus atendimentos realizados com os docentes, detalhando informações como nome do docente, data e hora, assunto tratado, encaminhamentos e observações, com os dados sendo armazenados de forma segura em um banco de dados MySQL. A arquitetura da API baseia-se em REST, utilizando métodos HTTP padrão para uma comunicação eficiente e simplificada. Além disso, é complementada por uma documentação Swagger, que proporciona uma interface gráfica interativa para que os desenvolvedores possam explorar e testar os endpoints de maneira fácil. Dentre os pacotes NuGet utilizados, o AutoMapper é o responsável pelo mapeamento entre objetos de domínio e requisição/resposta, reduzindo a necessidade de código repetitivo e manual. Para as validações, o FluentValidation é usado para implementar regras de validação de forma simples e intuitiva nas classes de requisições, mantendo o código limpo e fácil de manter. O **BCrypt** atua para criptografar senhas dos usuários, garantindo a segurança de informações sensíveis. Por fim, o EntityFramework atua como um ORM (Object-Relational Mapper) que simplifica as interações com o banco de dados, permitindo o uso de objetos .NET para manipular dados diretamente, sem a necessidade de lidar com consultas SQL.
+Esta API, desenvolvida utilizando **.NET 8**, adota os princípios do **Domain-Driven Design (DDD)** para oferecer uma solução estruturada e eficaz no gerenciamento de registros de atendimentos docentes realizados por coordenadores pedagógicos.
+
+O principal objetivo é permitir que os usuários registrem seus atendimentos realizados com os docentes, detalhando informações como **nome do docente, data e hora, assunto tratado, encaminhamentos e observações**, com os dados sendo armazenados de forma segura em um banco de dados **MySQL**.
+
+A arquitetura da API baseia-se em **REST**, utilizando métodos **HTTP** padrão para uma comunicação eficiente e simplificada. Além disso, a API é complementada por uma documentação **Swagger**, que proporciona uma interface gráfica interativa para que desenvolvedores possam explorar e testar os endpoints de maneira fácil.
+
+Para garantir a segurança da aplicação, o sistema utiliza **autenticação baseada em tokens JWT (JSON Web Token)**. Dessa forma, apenas usuários autenticados podem acessar os recursos protegidos da API.
+
+Também foi implementado um sistema de **autorização por papéis (roles)**, permitindo diferentes níveis de acesso no sistema. Atualmente existem **três tipos de usuários**:
+
+- **Admin**
+- **Coordenador**
+- **Outros**
+
+Essas permissões controlam quais endpoints cada tipo de usuário pode acessar ou executar.
+
+Dentre os pacotes **NuGet** utilizados:
+
+- **AutoMapper** é responsável pelo mapeamento entre objetos de domínio e requisição/resposta, reduzindo código repetitivo.
+- **FluentValidation** é utilizado para implementar regras de validação de forma clara e organizada nas classes de requisição.
+- **BCrypt** é utilizado para **criptografar senhas dos usuários**, garantindo a segurança de informações sensíveis.
+- **EntityFramework** atua como um **ORM (Object-Relational Mapper)** que simplifica as interações com o banco de dados, permitindo manipular dados utilizando objetos .NET em vez de consultas SQL diretas.
+
+Além disso, o projeto conta com uma estratégia de **testes automatizados**, incluindo:
+
+- **Testes de UseCase** utilizando **Moq** para simulação de dependências e validação das regras de negócio.
+- **Testes de Integração**, garantindo que os diferentes componentes da aplicação funcionem corretamente quando integrados.
 
 ## ✨ Features
 As principais funcionalidades do projeto são:
 
 - Cadastro e gerenciamento de atendimentos docentes.
-- Login de usuário (armazenando as informações de login na base de dados).
+- **Autenticação com JWT** para acesso seguro à API.
+- **Controle de autorização por roles** (Admin, Coordenador e Outros).
+- Login de usuário com **senhas criptografadas utilizando BCrypt**.
 - Geração de relatórios de atendimentos em **Excel**.
 - Geração de relatórios de atendimentos em **PDF**.
 - Controle de permissões: somente coordenadores podem registrar atendimentos e gerar relatórios.
@@ -37,7 +65,7 @@ Para executar este projeto, você precisará ter instalado:
 3. Execute a API e aproveite o seu teste!
 
 ## 📌 Status do Projeto
-🚧 **Em desenvolvimento**: funcionalidades básicas já implementadas (CRUD de atendimentos, login e relatórios), novas melhorias em andamento.
+🚧 **Finalizado**✅
 
 <!--[hero-image]: src/images/heorimage.jpg -->
 
@@ -46,3 +74,4 @@ Para executar este projeto, você precisará ter instalado:
 [mysql-badge]: https://img.shields.io/badge/MySQL-4479A1?logo=mysql&logoColor=fff&style=flat-square
 
 [swagger-badge]: https://img.shields.io/badge/Swagger-85EA2D?logo=swagger&logoColor=000&style=flat-square
+
