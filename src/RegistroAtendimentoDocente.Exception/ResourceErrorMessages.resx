@@ -144,6 +144,9 @@
   <data name="NAME_USER_EMPTY" xml:space="preserve">
     <value>Name user is required.</value>
   </data>
+  <data name="PASSWORD_DIFFERENT_CURRENT_PASSWORD" xml:space="preserve">
+    <value>Password different current password.</value>
+  </data>
   <data name="PASSWORD_EMPTY" xml:space="preserve">
     <value>Password is required.</value>
   </data>

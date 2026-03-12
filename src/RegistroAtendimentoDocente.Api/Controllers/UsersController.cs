@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RegistroAtendimentoDocente.Application.UseCases.Users.ChangePassword;
 using RegistroAtendimentoDocente.Application.UseCases.Users.Delete;
 using RegistroAtendimentoDocente.Application.UseCases.Users.DeleteProfile;
 using RegistroAtendimentoDocente.Application.UseCases.Users.GetAll;
@@ -16,7 +17,6 @@ namespace RegistroAtendimentoDocente.Api.Controllers;
 
 [Route("[controller]")]
 [ApiController]
-//change password
 public class UsersController : ControllerBase
 {
     [HttpGet]
@@ -70,7 +70,7 @@ public class UsersController : ControllerBase
         return Created(string.Empty, response);
     }
 
-    [HttpPut]
+    [HttpPut("update-profile")]
     [Authorize]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -101,6 +101,21 @@ public class UsersController : ControllerBase
         await useCase.Execute(request, id);
 
         return NoContent(); 
+    }
+
+    [HttpPut("change-password")]
+    [Authorize]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(ResponseErrorsJson), StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ChangePassword(
+        [FromServices] IChangePasswordUseCase useCase,
+        [FromBody] RequestChangePasswordJson request
+        )
+    {
+        await useCase.Execute(request);
+
+        return NoContent();
     }
 
     [HttpDelete("delete-profile")]

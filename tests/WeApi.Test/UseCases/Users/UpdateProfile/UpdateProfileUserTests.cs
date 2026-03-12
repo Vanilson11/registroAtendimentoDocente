@@ -10,7 +10,7 @@ namespace WeApi.Test.UseCases.Users.UpdateProfile;
 
 public class UpdateProfileUserTests : RegistroAtendimentoDocenteClassFixture
 {
-    private const string METHOD = "users";
+    private const string METHOD = "users/update-profile";
     private readonly string _tokenCoordenador;
     private readonly string _email;
     public UpdateProfileUserTests(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)

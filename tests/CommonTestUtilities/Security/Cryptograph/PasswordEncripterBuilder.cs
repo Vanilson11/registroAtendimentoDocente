@@ -13,7 +13,7 @@ public class PasswordEncripterBuilder
         _encripter.Setup(passwordEncripter => passwordEncripter.Encrypt(It.IsAny<string>())).Returns("string_criptography");
     }
 
-    public PasswordEncripterBuilder Verify(string password)
+    public PasswordEncripterBuilder Verify(string? password)
     {
         if(string.IsNullOrWhiteSpace(password) == false)
         {
