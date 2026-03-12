@@ -10,8 +10,6 @@ namespace RegistroAtendimentoDocente.Api.Controllers;
 [Route("[controller]")]
 [ApiController]
 [Authorize(Roles = Roles.COORDENADOR)]
-//ideia: adm poder gerar relatório de todos os atendimentos de todos os coordenadores
-//e poder gerar relatório de todos os atendimentos de um coordenador específico
 public class ReportsController : ControllerBase
 {
     [HttpGet("excel")]

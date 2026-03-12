@@ -74,7 +74,7 @@ public class AtendimentoController : ControllerBase
 
     [HttpDelete]
     [Route("{id}")]
-    [Authorize(Roles = $"{Roles.COORDENADOR}, {Roles.ADMIN}")]
+    [Authorize(Roles = Roles.COORDENADOR)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
