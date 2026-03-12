@@ -5,7 +5,7 @@ namespace WeApi.Test.UseCases.Users.DeleteProfile;
 
 public class DeleteUserProfileTests : RegistroAtendimentoDocenteClassFixture
 {
-    private const string METHOD = "users";
+    private const string METHOD = "users/delete-profile";
     private readonly string _tokenCoordenador;
     public DeleteUserProfileTests(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
     {

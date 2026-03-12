@@ -8,6 +8,7 @@ using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel
 using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Pdf;
 using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Update;
 using RegistroAtendimentoDocente.Application.UseCases.Login.DoLogin;
+using RegistroAtendimentoDocente.Application.UseCases.Users.Delete;
 using RegistroAtendimentoDocente.Application.UseCases.Users.DeleteProfile;
 using RegistroAtendimentoDocente.Application.UseCases.Users.GetAll;
 using RegistroAtendimentoDocente.Application.UseCases.Users.GetById;
@@ -47,5 +48,6 @@ public static class DependencyInjectionExtentions
         services.AddScoped<IGetAllUsersUseCase, GetAllUsersUseCase>();
         services.AddScoped<IGetUserByIdUseCase, GetUserByIdUseCase>();
         services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
+        services.AddScoped<IDeleteUserUseCase, DeleteUserUseCase>();
     }
 }

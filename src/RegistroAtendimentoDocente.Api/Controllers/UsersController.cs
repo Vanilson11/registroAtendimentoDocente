@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RegistroAtendimentoDocente.Application.UseCases.Users.Delete;
 using RegistroAtendimentoDocente.Application.UseCases.Users.DeleteProfile;
 using RegistroAtendimentoDocente.Application.UseCases.Users.GetAll;
 using RegistroAtendimentoDocente.Application.UseCases.Users.GetById;
@@ -16,8 +17,6 @@ namespace RegistroAtendimentoDocente.Api.Controllers;
 [Route("[controller]")]
 [ApiController]
 //change password
-//ADMIN:
-//delete user by id
 public class UsersController : ControllerBase
 {
     [HttpGet]
@@ -104,13 +103,27 @@ public class UsersController : ControllerBase
         return NoContent(); 
     }
 
-    [HttpDelete]
+    [HttpDelete("delete-profile")]
     [Authorize]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public async Task<IActionResult> DeleteProfile([FromServices] IDeleteProfileUserUseCase useCase)
     {
         await useCase.Execute();
+
+        return NoContent();
+    }
+
+    [HttpDelete]
+    [Route("{id}")]
+    [Authorize(Roles = Roles.ADMIN)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(ResponseErrorsJson), StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Delete([FromServices] IDeleteUserUseCase useCase, [FromRoute] long id)
+    {
+        await useCase.Execute(id);
 
         return NoContent();
     }
