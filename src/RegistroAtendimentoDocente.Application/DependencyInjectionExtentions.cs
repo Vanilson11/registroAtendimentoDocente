@@ -5,6 +5,8 @@ using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.GetAll;
 using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.GetById;
 using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Register;
 using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel.GetReportByCoordenador;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel.ReportByCoordenador;
 using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Pdf;
 using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Update;
 using RegistroAtendimentoDocente.Application.UseCases.Login.DoLogin;
@@ -51,5 +53,6 @@ public static class DependencyInjectionExtentions
         services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
         services.AddScoped<IDeleteUserUseCase, DeleteUserUseCase>();
         services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
+        services.AddScoped<IReportExcelByCoordenadorUseCase, ReportExcelByCoordenadorUseCase>();
     }
 }

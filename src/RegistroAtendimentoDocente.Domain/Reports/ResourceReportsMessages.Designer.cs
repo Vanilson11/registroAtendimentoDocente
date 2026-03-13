@@ -19,7 +19,7 @@ namespace RegistroAtendimentoDocente.Domain.Reports {
     // através de uma ferramenta como ResGen ou Visual Studio.
     // Para adicionar ou remover um associado, edite o arquivo .ResX e execute ResGen novamente
     // com a opção /str, ou recrie o projeto do VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class ResourceReportsMessages {
@@ -57,6 +57,15 @@ namespace RegistroAtendimentoDocente.Domain.Reports {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Coordenador responsável.
+        /// </summary>
+        public static string COORDENADOR {
+            get {
+                return ResourceManager.GetString("COORDENADOR", resourceCulture);
             }
         }
         

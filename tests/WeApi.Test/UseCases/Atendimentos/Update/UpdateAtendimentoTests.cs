@@ -16,7 +16,7 @@ public class UpdateAtendimentoTests : RegistroAtendimentoDocenteClassFixture
     private readonly long _atendimentoId;
     public UpdateAtendimentoTests(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
     {
-        _token = webApplicationFactory.User_Coordenador.GetToken();
+        _token = webApplicationFactory.User_Coordenador_1.GetToken();
         _tokenAdmin = webApplicationFactory.User_Admin.GetToken();
         _atendimentoId = webApplicationFactory.Atendimento_Coordenador.GetId();
     }

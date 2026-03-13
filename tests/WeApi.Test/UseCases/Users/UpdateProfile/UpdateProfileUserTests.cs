@@ -15,7 +15,7 @@ public class UpdateProfileUserTests : RegistroAtendimentoDocenteClassFixture
     private readonly string _email;
     public UpdateProfileUserTests(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
     {
-        _tokenCoordenador = webApplicationFactory.User_Coordenador.GetToken();
+        _tokenCoordenador = webApplicationFactory.User_Coordenador_1.GetToken();
         _email = webApplicationFactory.User_Admin.GetEmail();
     }
 

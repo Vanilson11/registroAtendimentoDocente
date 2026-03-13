@@ -19,7 +19,7 @@ public class UpdateUserTests : RegistroAtendimentoDocenteClassFixture
     {
         _tokenAdmin = webApplicationFactory.User_Admin.GetToken();
         _token = webApplicationFactory.User_Others.GetToken();
-        _email = webApplicationFactory.User_Coordenador.GetEmail();
+        _email = webApplicationFactory.User_Coordenador_1.GetEmail();
         _id = webApplicationFactory.User_Others.GetId();
     }
 

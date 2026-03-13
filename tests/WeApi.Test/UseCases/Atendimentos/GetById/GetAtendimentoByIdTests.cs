@@ -16,7 +16,7 @@ public class GetAtendimentoByIdTests : RegistroAtendimentoDocenteClassFixture
     private readonly Atendimento _atendimento;
     public GetAtendimentoByIdTests(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
     {
-        _token = webApplicationFactory.User_Coordenador.GetToken();
+        _token = webApplicationFactory.User_Coordenador_1.GetToken();
         _tokenAdmin = webApplicationFactory.User_Admin.GetToken();
         _atendimento = webApplicationFactory.Atendimento_Coordenador.GetAtendimento();
     }

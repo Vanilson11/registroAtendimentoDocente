@@ -232,6 +232,15 @@ namespace RegistroAtendimentoDocente.Exception {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a User is not coordinator..
+        /// </summary>
+        public static string USER_IS_NOT_COORDINATOR {
+            get {
+                return ResourceManager.GetString("USER_IS_NOT_COORDINATOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a User not found..
         /// </summary>
         public static string USER_NOT_FOUND {

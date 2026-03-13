@@ -13,12 +13,12 @@ using WeApi.Test.Resources;
 namespace WeApi.Test;
 public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
-    public AtendimentoIdentityManager Atendimento_Others { get; private set; } = default!;
     public AtendimentoIdentityManager Atendimento_Admin { get; private set; } = default!;
     public AtendimentoIdentityManager Atendimento_Coordenador { get; private set; } = default!;
     public UserIdentityManager User_Others { get; private set; } = default!;
     public UserIdentityManager User_Admin { get; private set; } = default!;
-    public UserIdentityManager User_Coordenador { get; private set; } = default!;
+    public UserIdentityManager User_Coordenador_1 { get; private set; } = default!;
+    public UserIdentityManager User_Coordenador_2 { get; private set; } = default!;
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         builder.UseEnvironment("Test")
@@ -43,25 +43,33 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
     private void StartDatabase(RegistroAtendimentoDocenteDbContext context, IPasswordEncripter passwordEncripter, IAccessTokenGenerator tokenGenerator)
     {
-        var user = AddUser(context, passwordEncripter, tokenGenerator);
-        var atendimentoUser = AddAtendimento(user, context, atendimentoId: 1);
-        Atendimento_Others = new AtendimentoIdentityManager(atendimentoUser);
+        AddUser(context, passwordEncripter, tokenGenerator, id: 1);
 
-        var userCoordenador = AddUserCoordenador(context, passwordEncripter, tokenGenerator);
-        var atendimentoCoordenador = AddAtendimento(userCoordenador, context, atendimentoId: 2);
-        Atendimento_Coordenador = new AtendimentoIdentityManager(atendimentoCoordenador);
+        var userCoordenador1 = AddUserCoordenador(context, passwordEncripter, tokenGenerator, id: 2);
+        User_Coordenador_1 = userCoordenador1;
 
-        var userAdmin = AddUserAdmin(context, passwordEncripter, tokenGenerator);
-        var atendimentoAdmin = AddAtendimento(userAdmin, context, atendimentoId: 3);
+        var atendimentoCoordenador1 = AddAtendimento(userCoordenador1.GetUser(), context, atendimentoId: 1);
+        Atendimento_Coordenador = new AtendimentoIdentityManager(atendimentoCoordenador1);
+
+        var userCoordenador2 = AddUserCoordenador(context, passwordEncripter, tokenGenerator, id: 3);
+        User_Coordenador_2 = userCoordenador2;
+
+        var userAdmin = AddUserAdmin(context, passwordEncripter, tokenGenerator, id: 4);
+
+        var atendimentoAdmin = AddAtendimento(userAdmin, context, atendimentoId: 2);
         Atendimento_Admin = new AtendimentoIdentityManager(atendimentoAdmin);
 
         context.SaveChanges();
     }
 
-    private User AddUser(RegistroAtendimentoDocenteDbContext context, IPasswordEncripter passwordEncripter, IAccessTokenGenerator tokenGenerator)
+    private void AddUser(
+        RegistroAtendimentoDocenteDbContext context, 
+        IPasswordEncripter passwordEncripter, 
+        IAccessTokenGenerator tokenGenerator,
+        long id)
     {
         var user = UserBuilder.Build(Roles.OUTROS);
-        user.Id = 1;
+        user.Id = id;
 
         var password = user.Password;
 
@@ -72,14 +80,16 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         var token = tokenGenerator.Generate(user);
 
         User_Others = new UserIdentityManager(user, password, token);
-
-        return user;
     }
 
-    private User AddUserCoordenador(RegistroAtendimentoDocenteDbContext context, IPasswordEncripter passwordEncripter, IAccessTokenGenerator tokenGenerator)
+    private UserIdentityManager AddUserCoordenador(
+        RegistroAtendimentoDocenteDbContext context, 
+        IPasswordEncripter passwordEncripter, 
+        IAccessTokenGenerator tokenGenerator,
+        long id)
     {
         var user = UserBuilder.Build(Roles.COORDENADOR);
-        user.Id = 2;
+        user.Id = id;
 
         var password = user.Password;
 
@@ -89,15 +99,17 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 
         var token = tokenGenerator.Generate(user);
 
-        User_Coordenador = new UserIdentityManager(user, password, token);
-
-        return user;
+        return new UserIdentityManager(user, password, token);
     }
 
-    private User AddUserAdmin(RegistroAtendimentoDocenteDbContext context, IPasswordEncripter passwordEncripter, IAccessTokenGenerator tokenGenerator)
+    private User AddUserAdmin(
+        RegistroAtendimentoDocenteDbContext context, 
+        IPasswordEncripter passwordEncripter, 
+        IAccessTokenGenerator tokenGenerator,
+        long id)
     {
         var user = UserBuilder.Build(Roles.ADMIN);
-        user.Id = 3;
+        user.Id =id;
 
         var password = user.Password;
 

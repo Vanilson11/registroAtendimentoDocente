@@ -14,7 +14,7 @@ public class RegisterAtendimentoTests : RegistroAtendimentoDocenteClassFixture
     private readonly string _tokenAdmin;
     public RegisterAtendimentoTests(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
     {
-        _token = webApplicationFactory.User_Coordenador.GetToken();
+        _token = webApplicationFactory.User_Coordenador_1.GetToken();
         _tokenAdmin = webApplicationFactory.User_Admin.GetToken();
     }
 

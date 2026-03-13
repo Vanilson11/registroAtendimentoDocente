@@ -12,8 +12,8 @@ public class GetProfileUserTests : RegistroAtendimentoDocenteClassFixture
     private readonly User _userCoordenador;
     public GetProfileUserTests(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
     {
-        _tokenCoordenador = webApplicationFactory.User_Coordenador.GetToken();
-        _userCoordenador = webApplicationFactory.User_Coordenador.GetUser();
+        _tokenCoordenador = webApplicationFactory.User_Coordenador_1.GetToken();
+        _userCoordenador = webApplicationFactory.User_Coordenador_1.GetUser();
     }
 
     [Fact]

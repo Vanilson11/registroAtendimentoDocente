@@ -13,9 +13,12 @@ public class AtendimentosReadOnlyRepositoryBuilder
         _mock = new Mock<IAtendimentosReadOnlyRepository>();
     }
 
-    public AtendimentosReadOnlyRepositoryBuilder GetAll(User user, List<Atendimento> atendimentos)
+    public AtendimentosReadOnlyRepositoryBuilder GetAll(User? user, List<Atendimento> atendimentos)
     {
-        _mock.Setup(repository => repository.GetAll(user)).ReturnsAsync(atendimentos);
+        if(user is not null)
+        {
+            _mock.Setup(repository => repository.GetAll(user)).ReturnsAsync(atendimentos);
+        }
 
         return this;
     }

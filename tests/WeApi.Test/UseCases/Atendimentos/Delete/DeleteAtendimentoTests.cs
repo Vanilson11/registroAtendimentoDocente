@@ -15,7 +15,7 @@ public class DeleteAtendimentoTests : RegistroAtendimentoDocenteClassFixture
     private readonly long _atendimentoId;
     public DeleteAtendimentoTests(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
     {
-        _token = webApplicationFactory.User_Coordenador.GetToken();
+        _token = webApplicationFactory.User_Coordenador_1.GetToken();
         _tokenUserOthers = webApplicationFactory.User_Others.GetToken();
         _atendimentoId = webApplicationFactory.Atendimento_Coordenador.GetId();
     }

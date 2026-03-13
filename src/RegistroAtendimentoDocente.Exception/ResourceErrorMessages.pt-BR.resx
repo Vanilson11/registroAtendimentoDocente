@@ -174,6 +174,9 @@
   <data name="USER_ALREADY_REGISTERED" xml:space="preserve">
     <value>Usuário já registrado.</value>
   </data>
+  <data name="USER_IS_NOT_COORDINATOR" xml:space="preserve">
+    <value>Usuário não é um coordenador.</value>
+  </data>
   <data name="USER_NOT_FOUND" xml:space="preserve">
     <value>Usuário não encontrado.</value>
   </data>
