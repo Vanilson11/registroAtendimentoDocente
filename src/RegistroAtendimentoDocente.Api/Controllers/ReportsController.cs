@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel;
 using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel.GetReportByCoordenador;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel.ReportExcelServices;
 using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Pdf;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Pdf.ReportPdfByCoordinator;
 using RegistroAtendimentoDocente.Communication.Responses;
 using RegistroAtendimentoDocente.Domain.Enums;
 using System.Net.Mime;
@@ -41,7 +42,7 @@ public class ReportsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ResponseErrorsJson), StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetReportServicesExcelByCoordenador(
+    public async Task<IActionResult> GetReportServicesExcelByCoordinator(
         [FromServices] IReportExcelByCoordenadorUseCase useCase,
         [FromRoute] long id
         )
@@ -69,6 +70,29 @@ public class ReportsController : ControllerBase
 
         if (file.Length > 0)
             return File(file, MediaTypeNames.Application.Pdf, "report.pdf");
+
+        return NoContent();
+    }
+
+    [HttpGet]
+    [Route("pdf/coordenador/{id}")]
+    [Authorize(Roles = Roles.ADMIN)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(typeof(ResponseErrorsJson), StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetReportServicesPdfByCoordinator(
+        [FromServices] IReportPdfByCoordenadorUseCase useCase,
+        [FromRoute] long id
+        )
+    {
+        byte[] file = await useCase.Execute(id);
+
+        if (file.Length > 0)
+        {
+            return File(file, MediaTypeNames.Application.Pdf, "Report.pdf");
+        }
 
         return NoContent();
     }

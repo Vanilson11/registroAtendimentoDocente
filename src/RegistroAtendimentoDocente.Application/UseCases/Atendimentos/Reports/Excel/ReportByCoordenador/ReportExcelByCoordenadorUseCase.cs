@@ -74,7 +74,7 @@ public class ReportExcelByCoordenadorUseCase : IReportExcelByCoordenadorUseCase
         worksheet.Cell("C1").Value = ResourceReportsMessages.DATE;
         worksheet.Cell("D1").Value = ResourceReportsMessages.FOWARDING;
         worksheet.Cell("E1").Value = ResourceReportsMessages.OBSERVATION;
-        worksheet.Cell("F1").Value = ResourceReportsMessages.COORDENADOR;
+        worksheet.Cell("F1").Value = ResourceReportsMessages.COORDINATOR;
 
         worksheet.Cells("A1:F1").Style.Font.Bold = true;
         worksheet.Cells("A1:F1").Style.Fill.BackgroundColor = XLColor.FromHtml("#4DA8DA");

@@ -1,13 +1,13 @@
 ﻿using CommonTestUtilities.Entities;
 using CommonTestUtilities.Repositories.Atendimentos;
 using CommonTestUtilities.Services.LoggedUser;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel;
+using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel.ReportExcelServices;
 using RegistroAtendimentoDocente.Domain.Entities;
 using Shouldly;
 
-namespace UseCases.Tests.Atendimentos.Reports.Excel;
+namespace UseCases.Tests.Atendimentos.Reports.Pdf.ReportPdfServices;
 
-public class ReportExcelServicesUseCaseTests
+public class ReportPdfServicesUseCaseTests
 {
     private ReportExcelServicesUseCase CreateUseCase(User user, List<Atendimento> atendimentos)
     {
@@ -26,8 +26,8 @@ public class ReportExcelServicesUseCaseTests
 
         var result = await useCase.Execute(DateOnly.FromDateTime(DateTime.Today));
 
-        result.ShouldNotBeNull();
         result.ShouldNotBeEmpty();
+        result.ShouldNotBeNull();
     }
 
     [Fact]

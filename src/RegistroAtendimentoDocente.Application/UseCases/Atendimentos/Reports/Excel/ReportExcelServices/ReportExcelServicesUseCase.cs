@@ -4,7 +4,7 @@ using RegistroAtendimentoDocente.Domain.Reports;
 using RegistroAtendimentoDocente.Domain.Repositories.Atendimentos;
 using RegistroAtendimentoDocente.Domain.Services.LoggedUser;
 
-namespace RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel;
+namespace RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel.ReportExcelServices;
 public class ReportExcelServicesUseCase : IReportExcelServicesUseCase
 {
     private readonly IAtendimentosReadOnlyRepository _repository;

@@ -61,11 +61,20 @@ namespace RegistroAtendimentoDocente.Domain.Reports {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a All services off coordinator {0}.
+        /// </summary>
+        public static string ALL_SERVICES_OFF_COORDINATOR {
+            get {
+                return ResourceManager.GetString("ALL_SERVICES_OFF_COORDINATOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Coordenador responsável.
         /// </summary>
-        public static string COORDENADOR {
+        public static string COORDINATOR {
             get {
-                return ResourceManager.GetString("COORDENADOR", resourceCulture);
+                return ResourceManager.GetString("COORDINATOR", resourceCulture);
             }
         }
         
