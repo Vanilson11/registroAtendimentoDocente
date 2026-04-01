@@ -15,6 +15,7 @@ using RegistroAtendimentoDocente.Application.UseCases.Users.ChangePassword;
 using RegistroAtendimentoDocente.Application.UseCases.Users.Delete;
 using RegistroAtendimentoDocente.Application.UseCases.Users.DeleteProfile;
 using RegistroAtendimentoDocente.Application.UseCases.Users.GetAll;
+using RegistroAtendimentoDocente.Application.UseCases.Users.GetAllCoordinators;
 using RegistroAtendimentoDocente.Application.UseCases.Users.GetById;
 using RegistroAtendimentoDocente.Application.UseCases.Users.GetProfile;
 using RegistroAtendimentoDocente.Application.UseCases.Users.Register;
@@ -56,5 +57,6 @@ public static class DependencyInjectionExtentions
         services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
         services.AddScoped<IReportExcelByCoordenadorUseCase, ReportExcelByCoordenadorUseCase>();
         services.AddScoped<IReportPdfByCoordenadorUseCase, ReportPdfByCoordenadorUseCase>();
+        services.AddScoped<IGetAllCoordinatorsUseCase, GetAllCoordinatorsUseCase>();
     }
 }

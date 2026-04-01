@@ -4,6 +4,7 @@ using RegistroAtendimentoDocente.Application.UseCases.Users.ChangePassword;
 using RegistroAtendimentoDocente.Application.UseCases.Users.Delete;
 using RegistroAtendimentoDocente.Application.UseCases.Users.DeleteProfile;
 using RegistroAtendimentoDocente.Application.UseCases.Users.GetAll;
+using RegistroAtendimentoDocente.Application.UseCases.Users.GetAllCoordinators;
 using RegistroAtendimentoDocente.Application.UseCases.Users.GetById;
 using RegistroAtendimentoDocente.Application.UseCases.Users.GetProfile;
 using RegistroAtendimentoDocente.Application.UseCases.Users.Register;
@@ -19,6 +20,17 @@ namespace RegistroAtendimentoDocente.Api.Controllers;
 [ApiController]
 public class UsersController : ControllerBase
 {
+    [HttpGet("get-all-coordinators")]
+    [Authorize]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(typeof(ResponseUsersJson), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetAllCoordinators([FromServices] IGetAllCoordinatorsUseCase useCase)
+    {
+        var response = await useCase.Execute();
+
+        return Ok(response);
+    }
+
     [HttpGet]
     [Authorize(Roles = Roles.ADMIN)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]

@@ -48,6 +48,13 @@ public class ReadOnlyUsersRepositoryBuilder
 
         return this;
     }
+
+    public ReadOnlyUsersRepositoryBuilder GetAllCoordinators(List<User> users)
+    {
+        _repository.Setup(readOnlyUsers => readOnlyUsers.GetAllCoordinators()).ReturnsAsync(users);
+
+        return this;
+    }
     public IReadOnlyUsersRepository Build()
     {
         return _repository.Object;

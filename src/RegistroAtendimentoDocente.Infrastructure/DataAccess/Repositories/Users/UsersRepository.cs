@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RegistroAtendimentoDocente.Domain.Entities;
+using RegistroAtendimentoDocente.Domain.Enums;
 using RegistroAtendimentoDocente.Domain.Repositories.Users;
 
 namespace RegistroAtendimentoDocente.Infrastructure.DataAccess.Repositories.Users;
@@ -52,5 +53,10 @@ internal class UsersRepository : IReadOnlyUsersRepository, IWriteOnlyUsersReposi
     public async Task<List<User>> GetAll()
     {
         return await _dbContext.Users.AsNoTracking().ToListAsync();
+    }
+
+    public async Task<List<User>> GetAllCoordinators()
+    {
+        return await _dbContext.Users.AsNoTracking().Where(user => user.Role == Roles.COORDENADOR).ToListAsync();
     }
 }

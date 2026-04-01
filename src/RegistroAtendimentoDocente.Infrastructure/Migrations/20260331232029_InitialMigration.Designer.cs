@@ -12,8 +12,8 @@ using RegistroAtendimentoDocente.Infrastructure.DataAccess;
 namespace RegistroAtendimentoDocente.Infrastructure.Migrations
 {
     [DbContext(typeof(RegistroAtendimentoDocenteDbContext))]
-    [Migration("20260311182206_AlterEntitiesMigration")]
-    partial class AlterEntitiesMigration
+    [Migration("20260331232029_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
