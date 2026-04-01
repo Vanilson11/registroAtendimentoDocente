@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using RegistroAtendimentoDocente.Api.Filters;
@@ -7,15 +9,14 @@ using RegistroAtendimentoDocente.Api.Tokens;
 using RegistroAtendimentoDocente.Application;
 using RegistroAtendimentoDocente.Domain.Security.Tokens;
 using RegistroAtendimentoDocente.Infrastructure;
+using RegistroAtendimentoDocente.Infrastructure.DataAccess;
 using RegistroAtendimentoDocente.Infrastructure.Migrations;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(config =>
 {
@@ -76,9 +77,20 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<ITokenProvider, HttpContextTokenValue>();
 
+builder.Services.AddHealthChecks().AddDbContextCheck<RegistroAtendimentoDocenteDbContext>();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.MapHealthChecks("/health", new HealthCheckOptions
+{
+    AllowCachingResponses = false,
+    ResultStatusCodes =
+    {
+        [HealthStatus.Healthy] = StatusCodes.Status200OK,
+        [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
+    }
+});
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
