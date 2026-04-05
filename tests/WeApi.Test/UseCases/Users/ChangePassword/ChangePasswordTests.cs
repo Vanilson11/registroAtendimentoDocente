@@ -9,7 +9,7 @@ using WeApi.Test.InlineData;
 
 namespace WeApi.Test.UseCases.Users.ChangePassword;
 
-public class ChangePasswordTests : RegistroAtendimentoDocenteClassFixture
+public class ChangePasswordTests : RegisterConsultationTeacherDocenteClassFixture
 {
     private const string METHOD = "users/change-password";
     private readonly string _token;

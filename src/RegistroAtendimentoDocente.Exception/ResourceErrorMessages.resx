@@ -117,11 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DATA_MEETING_INVALID" xml:space="preserve">
-    <value>Service cannot be from the future.</value>
+  <data name="DATE_CONSULTATION_INVALID" xml:space="preserve">
+    <value>Consultation cannot be from the future.</value>
   </data>
-  <data name="DATE_MEETING_EMPTY" xml:space="preserve">
-    <value>The date of meeting is required.</value>
+  <data name="DATE_CONSULTATION_EMPTY" xml:space="preserve">
+    <value>The date of consultation is required.</value>
   </data>
   <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
     <value>E-mail already registered.</value>
@@ -159,11 +159,8 @@
   <data name="ROLE_INVALID" xml:space="preserve">
     <value>Role invalid.</value>
   </data>
-  <data name="SERVICE_NOT_FOUND" xml:space="preserve">
-    <value>Service not found.</value>
-  </data>
-  <data name="SUBJECT_MEETING_EMPTY" xml:space="preserve">
-    <value>The subject of meeting is required.</value>
+  <data name="CONSULTATION_NOT_FOUND" xml:space="preserve">
+    <value>Consultation not found.</value>
   </data>
   <data name="TEACHER_NAME_EMPTY" xml:space="preserve">
     <value>The name of teacher is required.</value>
@@ -179,5 +176,8 @@
   </data>
   <data name="USER_NOT_FOUND" xml:space="preserve">
     <value>User not found.</value>
+  </data>
+  <data name="SUBJECT_CONSULTATION_EMPTY" xml:space="preserve">
+    <value>The subject of consultations is required.</value>
   </data>
 </root>

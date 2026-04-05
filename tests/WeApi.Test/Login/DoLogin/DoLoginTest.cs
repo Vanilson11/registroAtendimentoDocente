@@ -8,7 +8,7 @@ using System.Text.Json;
 using WeApi.Test.InlineData;
 
 namespace WeApi.Test.Login.DoLogin;
-public class DoLoginTest : RegistroAtendimentoDocenteClassFixture
+public class DoLoginTest : RegisterConsultationTeacherDocenteClassFixture
 {
     private const string METHOD = "login";
     private readonly string _email;

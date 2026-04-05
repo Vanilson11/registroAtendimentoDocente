@@ -8,7 +8,7 @@ using WeApi.Test.InlineData;
 
 namespace WeApi.Test.UseCases.Users.GetById;
 
-public class GetUserByIdTests : RegistroAtendimentoDocenteClassFixture
+public class GetUserByIdTests : RegisterConsultationTeacherDocenteClassFixture
 {
     private const string METHOD = "users";
     private readonly string _tokenAdmin;

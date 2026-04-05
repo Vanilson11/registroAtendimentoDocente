@@ -2,7 +2,7 @@
 using System.Net;
 
 namespace RegistroAtendimentoDocente.Exception.ExceptionsBase;
-public class NotFoundException : RegistroAtendimentoDocenteException
+public class NotFoundException : RegisterConsultationTeacherException
 {
     public NotFoundException(string message) : base(message) { }
 

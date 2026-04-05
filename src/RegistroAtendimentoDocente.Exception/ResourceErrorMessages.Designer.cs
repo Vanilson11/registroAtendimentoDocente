@@ -61,20 +61,29 @@ namespace RegistroAtendimentoDocente.Exception {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Service cannot be from the future..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Consultation not found..
         /// </summary>
-        public static string DATA_MEETING_INVALID {
+        public static string CONSULTATION_NOT_FOUND {
             get {
-                return ResourceManager.GetString("DATA_MEETING_INVALID", resourceCulture);
+                return ResourceManager.GetString("CONSULTATION_NOT_FOUND", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The date of meeting is required..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The date of consultation is required..
         /// </summary>
-        public static string DATE_MEETING_EMPTY {
+        public static string DATE_CONSULTATION_EMPTY {
             get {
-                return ResourceManager.GetString("DATE_MEETING_EMPTY", resourceCulture);
+                return ResourceManager.GetString("DATE_CONSULTATION_EMPTY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Consultation cannot be from the future..
+        /// </summary>
+        public static string DATE_CONSULTATION_INVALID {
+            get {
+                return ResourceManager.GetString("DATE_CONSULTATION_INVALID", resourceCulture);
             }
         }
         
@@ -187,20 +196,11 @@ namespace RegistroAtendimentoDocente.Exception {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Service not found..
+        ///   Consulta uma cadeia de caracteres localizada semelhante a The subject of consultations is required..
         /// </summary>
-        public static string SERVICE_NOT_FOUND {
+        public static string SUBJECT_CONSULTATION_EMPTY {
             get {
-                return ResourceManager.GetString("SERVICE_NOT_FOUND", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a The subject of meeting is required..
-        /// </summary>
-        public static string SUBJECT_MEETING_EMPTY {
-            get {
-                return ResourceManager.GetString("SUBJECT_MEETING_EMPTY", resourceCulture);
+                return ResourceManager.GetString("SUBJECT_CONSULTATION_EMPTY", resourceCulture);
             }
         }
         

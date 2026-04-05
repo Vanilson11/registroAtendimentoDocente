@@ -7,7 +7,7 @@ using System.Text.Json;
 using WeApi.Test.InlineData;
 
 namespace WeApi.Test.UseCases.Users.Delete;
-public class DeleteUserTests : RegistroAtendimentoDocenteClassFixture
+public class DeleteUserTests : RegisterConsultationTeacherDocenteClassFixture
 {
     private const string METHOD = "users";
     private readonly string _tokenAdmin;

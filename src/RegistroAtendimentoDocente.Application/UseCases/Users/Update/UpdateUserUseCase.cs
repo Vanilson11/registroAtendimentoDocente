@@ -9,28 +9,23 @@ namespace RegistroAtendimentoDocente.Application.UseCases.Users.Update;
 public class UpdateUserUseCase : IUpdateUserUseCase
 {
     private readonly IUpdateOnlyUsersRepository _updateOnlyUsersRepository;
-    private readonly IReadOnlyUsersRepository _readOnlyUsersRepository;
     private readonly IUnitOffWork _unitOffWork;
     public UpdateUserUseCase(
         IUpdateOnlyUsersRepository updateOnlyUsersRepository,
-        IReadOnlyUsersRepository readOnlyUsersRepository,
         IUnitOffWork unitOffWork
         )
     {
         _updateOnlyUsersRepository = updateOnlyUsersRepository;
-        _readOnlyUsersRepository = readOnlyUsersRepository;
         _unitOffWork = unitOffWork;
     }
     public async Task Execute(RequestUpdateUserJson request, long id)
     {
+        await Validate(request);
+
         var user = await _updateOnlyUsersRepository.GetById(id);
 
         if (user is null) throw new NotFoundException(ResourceErrorMessages.USER_NOT_FOUND);
 
-        await Validate(request, user.Email);
-
-        user.Name = request.Name;
-        user.Email = request.Email;
         user.Role = request.Role;
 
         _updateOnlyUsersRepository.Update(user);
@@ -38,19 +33,9 @@ public class UpdateUserUseCase : IUpdateUserUseCase
         await _unitOffWork.Commit();
     }
 
-    private async Task Validate(RequestUpdateUserJson request, string currentEmail)
+    private async Task Validate(RequestUpdateUserJson request)
     {
         var result = new UpdateUserValidator().Validate(request);
-
-        if(currentEmail.Equals(request.Email) == false)
-        {
-            var userWithExistsEmail = await _readOnlyUsersRepository.ExistActiveUserWithEmail(request.Email);
-
-            if (userWithExistsEmail)
-            {
-                result.Errors.Add(new FluentValidation.Results.ValidationFailure(string.Empty, ResourceErrorMessages.EMAIL_ALREADY_REGISTERED));
-            }
-        }
 
         if(result.IsValid is false)
         {

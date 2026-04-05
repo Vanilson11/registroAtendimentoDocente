@@ -24,7 +24,7 @@ public class UserBuilder
 
         return list;
     }
-    public static User Build(string role = Roles.COORDENADOR)
+    public static User Build(string role = Roles.COORDINATOR)
     {
         return new Faker<User>()
             .RuleFor(user => user.Id, _ => 1)

@@ -61,16 +61,25 @@ namespace RegistroAtendimentoDocente.Domain.Reports {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a All services off coordinator {0}.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a All consultations off coordinator {0}.
         /// </summary>
-        public static string ALL_SERVICES_OFF_COORDINATOR {
+        public static string ALL_CONSULTATIONS_OFF_COORDINATOR {
             get {
-                return ResourceManager.GetString("ALL_SERVICES_OFF_COORDINATOR", resourceCulture);
+                return ResourceManager.GetString("ALL_CONSULTATIONS_OFF_COORDINATOR", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Coordenador responsável.
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Consultations provided at {0}.
+        /// </summary>
+        public static string CONSULTATIONS_PROVIDED_AT {
+            get {
+                return ResourceManager.GetString("CONSULTATIONS_PROVIDED_AT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Coordinator responsible.
         /// </summary>
         public static string COORDINATOR {
             get {
@@ -97,15 +106,6 @@ namespace RegistroAtendimentoDocente.Domain.Reports {
         }
         
         /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Forwarding.
-        /// </summary>
-        public static string FOWARDING {
-            get {
-                return ResourceManager.GetString("FOWARDING", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Observation.
         /// </summary>
         public static string OBSERVATION {
@@ -115,20 +115,20 @@ namespace RegistroAtendimentoDocente.Domain.Reports {
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Recommendations.
+        /// </summary>
+        public static string RECOMMENDATIONS {
+            get {
+                return ResourceManager.GetString("RECOMMENDATIONS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Escola Estadual Indígena Kumanã.
         /// </summary>
         public static string SCHOOL_NAME {
             get {
                 return ResourceManager.GetString("SCHOOL_NAME", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta uma cadeia de caracteres localizada semelhante a Services provided at {0}.
-        /// </summary>
-        public static string SERVICES_PROVIDED_AT {
-            get {
-                return ResourceManager.GetString("SERVICES_PROVIDED_AT", resourceCulture);
             }
         }
         

@@ -7,7 +7,7 @@ using System.Text.Json;
 using WeApi.Test.InlineData;
 
 namespace WeApi.Test.UseCases.Users.Register;
-public class RegisterUserTests : RegistroAtendimentoDocenteClassFixture
+public class RegisterUserTests : RegisterConsultationTeacherDocenteClassFixture
 {
     private const string METHOD = "users";
     private readonly string _email;

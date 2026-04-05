@@ -3,8 +3,8 @@
 namespace RegistroAtendimentoDocente.Infrastructure.DataAccess;
 internal class UnitOffWork : IUnitOffWork
 {
-    private readonly RegistroAtendimentoDocenteDbContext _dbContext;
-    public UnitOffWork(RegistroAtendimentoDocenteDbContext dbContext)
+    private readonly RegisterConsultationsTeacherDbContext _dbContext;
+    public UnitOffWork(RegisterConsultationsTeacherDbContext dbContext)
     {
         _dbContext = dbContext;
     }

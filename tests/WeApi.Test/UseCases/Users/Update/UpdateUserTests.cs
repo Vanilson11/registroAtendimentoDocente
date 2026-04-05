@@ -8,7 +8,7 @@ using WeApi.Test.InlineData;
 
 namespace WeApi.Test.UseCases.Users.Update;
 
-public class UpdateUserTests : RegistroAtendimentoDocenteClassFixture
+public class UpdateUserTests : RegisterConsultationTeacherDocenteClassFixture
 {
     private const string METHOD = "users";
     private readonly string _tokenAdmin;
@@ -19,7 +19,7 @@ public class UpdateUserTests : RegistroAtendimentoDocenteClassFixture
     {
         _tokenAdmin = webApplicationFactory.User_Admin.GetToken();
         _token = webApplicationFactory.User_Others.GetToken();
-        _email = webApplicationFactory.User_Coordenador_1.GetEmail();
+        _email = webApplicationFactory.User_Coordinator_1.GetEmail();
         _id = webApplicationFactory.User_Others.GetId();
     }
 
@@ -58,10 +58,10 @@ public class UpdateUserTests : RegistroAtendimentoDocenteClassFixture
 
     [Theory]
     [ClassData(typeof(CultureInfoInlineDataTest))]
-    public async Task Error_Name_Empty(string culture)
+    public async Task Error_Role_Empty(string culture)
     {
         var request = RequestUpdateUserJsonBuilder.Build();
-        request.Name = string.Empty;
+        request.Role = string.Empty;
 
         var result = await DoPut(requestUri: $"{METHOD}/{_id}", request: request, token: _tokenAdmin, culture: culture);
 
@@ -74,7 +74,7 @@ public class UpdateUserTests : RegistroAtendimentoDocenteClassFixture
         var errors = response.RootElement.GetProperty("errorMessages").EnumerateArray()
             .Select(error => error.GetString()).ToList();
 
-        var expectedMessage = ResourceErrorMessages.ResourceManager.GetString("NAME_USER_EMPTY", new CultureInfo(culture));
+        var expectedMessage = ResourceErrorMessages.ResourceManager.GetString("ROLE_EMPTY", new CultureInfo(culture));
 
         errors.Single()
             .ShouldSatisfyAllConditions(error => error.ShouldBe(expectedMessage));
@@ -82,10 +82,9 @@ public class UpdateUserTests : RegistroAtendimentoDocenteClassFixture
 
     [Theory]
     [ClassData(typeof(CultureInfoInlineDataTest))]
-    public async Task Error_Email_Already_Registered(string culture)
+    public async Task Error_Role_Invalid(string culture)
     {
-        var request = RequestUpdateUserJsonBuilder.Build();
-        request.Email = _email;
+        var request = RequestUpdateUserJsonBuilder.Build(role: "invalidRole");
 
         var result = await DoPut(requestUri: $"{METHOD}/{_id}", request: request, token: _tokenAdmin, culture: culture);
 
@@ -98,7 +97,7 @@ public class UpdateUserTests : RegistroAtendimentoDocenteClassFixture
         var errors = response.RootElement.GetProperty("errorMessages").EnumerateArray()
             .Select(error => error.GetString()).ToList();
 
-        var expectedMessage = ResourceErrorMessages.ResourceManager.GetString("EMAIL_ALREADY_REGISTERED", new CultureInfo(culture));
+        var expectedMessage = ResourceErrorMessages.ResourceManager.GetString("ROLE_INVALID", new CultureInfo(culture));
 
         errors.Single()
             .ShouldSatisfyAllConditions(error => error.ShouldBe(expectedMessage));

@@ -21,8 +21,6 @@ public class GetProfileUserUseCase : IGetProfileUserUseCase
     {
         var loggedUser = await _loggedUser.Get();
 
-        var user = await _readOnlyusersRepository.GetById(loggedUser.Id);
-
-        return _mapper.Map<ResponseShortUserJson>(user);
+        return _mapper.Map<ResponseShortUserJson>(loggedUser);
     }
 }

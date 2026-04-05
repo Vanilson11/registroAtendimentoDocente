@@ -1,7 +1,6 @@
 ﻿using CommonTestUtilities.Entities;
 using CommonTestUtilities.Repositories;
 using CommonTestUtilities.Repositories.Users;
-using DocumentFormat.OpenXml.Spreadsheet;
 using RegistroAtendimentoDocente.Application.UseCases.Users.Delete;
 using RegistroAtendimentoDocente.Domain.Entities;
 using RegistroAtendimentoDocente.Exception;

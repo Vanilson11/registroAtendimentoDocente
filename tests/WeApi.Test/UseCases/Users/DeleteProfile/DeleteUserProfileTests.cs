@@ -3,13 +3,13 @@ using System.Net;
 
 namespace WeApi.Test.UseCases.Users.DeleteProfile;
 
-public class DeleteUserProfileTests : RegistroAtendimentoDocenteClassFixture
+public class DeleteUserProfileTests : RegisterConsultationTeacherDocenteClassFixture
 {
     private const string METHOD = "users/delete-profile";
     private readonly string _tokenCoordenador;
     public DeleteUserProfileTests(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
     {
-        _tokenCoordenador = webApplicationFactory.User_Coordenador_1.GetToken();
+        _tokenCoordenador = webApplicationFactory.User_Coordinator_1.GetToken();
     }
 
     [Fact]

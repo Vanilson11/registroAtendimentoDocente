@@ -77,7 +77,7 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddScoped<ITokenProvider, HttpContextTokenValue>();
 
-builder.Services.AddHealthChecks().AddDbContextCheck<RegistroAtendimentoDocenteDbContext>();
+builder.Services.AddHealthChecks().AddDbContextCheck<RegisterConsultationsTeacherDbContext>();
 
 var app = builder.Build();
 

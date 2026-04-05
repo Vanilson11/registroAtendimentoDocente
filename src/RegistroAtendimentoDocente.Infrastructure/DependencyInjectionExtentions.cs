@@ -2,13 +2,13 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RegistroAtendimentoDocente.Domain.Repositories;
-using RegistroAtendimentoDocente.Domain.Repositories.Atendimentos;
+using RegistroAtendimentoDocente.Domain.Repositories.Consultations;
 using RegistroAtendimentoDocente.Domain.Repositories.Users;
 using RegistroAtendimentoDocente.Domain.Security.Criptography;
 using RegistroAtendimentoDocente.Domain.Security.Tokens;
 using RegistroAtendimentoDocente.Domain.Services.LoggedUser;
 using RegistroAtendimentoDocente.Infrastructure.DataAccess;
-using RegistroAtendimentoDocente.Infrastructure.DataAccess.Repositories.Atendimentos;
+using RegistroAtendimentoDocente.Infrastructure.DataAccess.Repositories.Consultations;
 using RegistroAtendimentoDocente.Infrastructure.DataAccess.Repositories.Users;
 using RegistroAtendimentoDocente.Infrastructure.Security.Tokens;
 using RegistroAtendimentoDocente.Infrastructure.Services.LoggedUser;
@@ -33,9 +33,9 @@ public static class DependencyInjectionExtentions
     private static void AddRepositories(IServiceCollection services)
     {
         services.AddScoped<IUnitOffWork, UnitOffWork>();
-        services.AddScoped<IAtendimentosReadOnlyRepository, AtendimentoRepository>();
-        services.AddScoped<IAtendimentoWriteOnlyRepository, AtendimentoRepository>();
-        services.AddScoped<IAtendimentoUpdateOnlyUseCase, AtendimentoRepository>();
+        services.AddScoped<IConsultationsReadOnlyRepository, ConsultationsRepository>();
+        services.AddScoped<IConsultationsWriteOnlyRepository, ConsultationsRepository>();
+        services.AddScoped<IConsultationsUpdateOnlyUseCase, ConsultationsRepository>();
         services.AddScoped<IReadOnlyUsersRepository, UsersRepository>();
         services.AddScoped<IWriteOnlyUsersRepository, UsersRepository>();
         services.AddScoped<IUpdateOnlyUsersRepository, UsersRepository>();
@@ -46,7 +46,7 @@ public static class DependencyInjectionExtentions
         var connectionString = configuration.GetConnectionString("Connection");
         var serverVersion = new MySqlServerVersion(new Version(8, 0, 42));
 
-        services.AddDbContext<RegistroAtendimentoDocenteDbContext>(config => config.UseMySql(connectionString, serverVersion));
+        services.AddDbContext<RegisterConsultationsTeacherDbContext>(config => config.UseMySql(connectionString, serverVersion));
     }
 
     private static void AddTokens(IServiceCollection services, IConfiguration configuration)

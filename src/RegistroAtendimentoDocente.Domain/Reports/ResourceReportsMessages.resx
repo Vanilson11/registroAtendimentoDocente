@@ -117,11 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ALL_SERVICES_OFF_COORDINATOR" xml:space="preserve">
-    <value>All services off coordinator {0}</value>
+  <data name="ALL_CONSULTATIONS_OFF_COORDINATOR" xml:space="preserve">
+    <value>All consultations off coordinator {0}</value>
   </data>
   <data name="COORDINATOR" xml:space="preserve">
-    <value>Coordenador responsável</value>
+    <value>Coordinator responsible</value>
   </data>
   <data name="DATE" xml:space="preserve">
     <value>Date</value>
@@ -129,8 +129,8 @@
   <data name="DEPARTMENT_EDUCATION" xml:space="preserve">
     <value>Department of Education</value>
   </data>
-  <data name="FOWARDING" xml:space="preserve">
-    <value>Forwarding</value>
+  <data name="RECOMMENDATIONS" xml:space="preserve">
+    <value>Recommendations</value>
   </data>
   <data name="OBSERVATION" xml:space="preserve">
     <value>Observation</value>
@@ -138,8 +138,8 @@
   <data name="SCHOOL_NAME" xml:space="preserve">
     <value>Escola Estadual Indígena Kumanã</value>
   </data>
-  <data name="SERVICES_PROVIDED_AT" xml:space="preserve">
-    <value>Services provided at {0}</value>
+  <data name="CONSULTATIONS_PROVIDED_AT" xml:space="preserve">
+    <value>Consultations provided at {0}</value>
   </data>
   <data name="SUBJECT" xml:space="preserve">
     <value>Subject</value>

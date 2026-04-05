@@ -9,10 +9,10 @@ using System.Security.Claims;
 namespace RegistroAtendimentoDocente.Infrastructure.Services.LoggedUser;
 public class LoggedUser : ILoggedUser
 {
-    private readonly RegistroAtendimentoDocenteDbContext _context;
+    private readonly RegisterConsultationsTeacherDbContext _context;
     private readonly ITokenProvider _tokenProvider;
 
-    public LoggedUser(RegistroAtendimentoDocenteDbContext context, ITokenProvider tokenProvider)
+    public LoggedUser(RegisterConsultationsTeacherDbContext context, ITokenProvider tokenProvider)
     {
         _context = context;
         _tokenProvider = tokenProvider;

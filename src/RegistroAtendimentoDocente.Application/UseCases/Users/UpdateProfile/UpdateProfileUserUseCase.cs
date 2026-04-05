@@ -35,7 +35,7 @@ public class UpdateProfileUserUseCase : IUpdateProfileUserUseCase
 
         var user = await _updateOnlyUsersRepository.GetById(loggedUser.Id);
 
-        user.Name = request.Name;
+        user!.Name = request.Name;
         user.Email = request.Email;
 
         _updateOnlyUsersRepository.Update(user);

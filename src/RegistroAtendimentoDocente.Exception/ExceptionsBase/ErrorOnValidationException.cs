@@ -1,7 +1,7 @@
 ﻿using System.Net;
 
 namespace RegistroAtendimentoDocente.Exception.ExceptionsBase;
-public class ErrorOnValidationException : RegistroAtendimentoDocenteException
+public class ErrorOnValidationException : RegisterConsultationTeacherException
 {
     private readonly List<string> _errors;
 

@@ -1,15 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RegistroAtendimentoDocente.Application.AutoMapper;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Delete;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.GetAll;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.GetById;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Register;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel.GetReportByCoordenador;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel.ReportByCoordenador;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel.ReportExcelServices;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Pdf;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Pdf.ReportPdfByCoordinator;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Update;
+using RegistroAtendimentoDocente.Application.UseCases.Consultations.Delete;
+using RegistroAtendimentoDocente.Application.UseCases.Consultations.GetAll;
+using RegistroAtendimentoDocente.Application.UseCases.Consultations.GetById;
+using RegistroAtendimentoDocente.Application.UseCases.Consultations.Register;
+using RegistroAtendimentoDocente.Application.UseCases.Consultations.Reports.Excel.ReportByCoordinator;
+using RegistroAtendimentoDocente.Application.UseCases.Consultations.Reports.Excel.ReportExcelConsultations;
+using RegistroAtendimentoDocente.Application.UseCases.Consultations.Reports.Pdf.ReportPdfByCoordinator;
+using RegistroAtendimentoDocente.Application.UseCases.Consultations.Reports.Pdf.ReportPdfConsultationsUseCase;
+using RegistroAtendimentoDocente.Application.UseCases.Consultations.Update;
 using RegistroAtendimentoDocente.Application.UseCases.Login.DoLogin;
 using RegistroAtendimentoDocente.Application.UseCases.Users.ChangePassword;
 using RegistroAtendimentoDocente.Application.UseCases.Users.Delete;
@@ -38,13 +37,13 @@ public static class DependencyInjectionExtentions
 
     private static void AddUseCases(IServiceCollection services)
     {
-        services.AddScoped<IRegisterAtendimentoUseCase, RegisterAtendimentoUseCase>();
-        services.AddScoped<IGetAllAtendimentosUseCase, GetAllAtendimentosUseCase>();
-        services.AddScoped<IGetAtendimentoByIdUseCase, GetAtendimentoByIdUseCase>();
-        services.AddScoped<IDeleteAtendimentosUseCase, DeleteAtendimentosUseCase>();
-        services.AddScoped<IUpdateAtendimentoUseCase, UpdateAtendimentoUseCase>();
-        services.AddScoped<IReportExcelServicesUseCase, ReportExcelServicesUseCase>();
-        services.AddScoped<IReportPdfServicesUseCase, ReportPdfServicesUseCase>();
+        services.AddScoped<IRegisterConsultationUseCase, RegisterConsultationUseCase>();
+        services.AddScoped<IGetAllConsultationsUseCase, GetAllConsultationsUseCase>();
+        services.AddScoped<IGetConsultationByIdUseCase, GetConsultationByIdUseCase>();
+        services.AddScoped<IDeleteConsultationUseCase, DeleteConsultationUseCase>();
+        services.AddScoped<IUpdateConsultationUseCase, UpdateAtendimentoUseCase>();
+        services.AddScoped<IReportExcelConsultationsUseCase, ReportExcelConsultationUseCase>();
+        services.AddScoped<IReportPdfConsultationsUseCase, ReportPdfConsultationsUseCase>();
         services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
         services.AddScoped<IDoLginUseCase, DoLginUseCase>();
         services.AddScoped<IGetProfileUserUseCase, GetProfileUserUseCase>();
@@ -55,8 +54,8 @@ public static class DependencyInjectionExtentions
         services.AddScoped<IUpdateUserUseCase, UpdateUserUseCase>();
         services.AddScoped<IDeleteUserUseCase, DeleteUserUseCase>();
         services.AddScoped<IChangePasswordUseCase, ChangePasswordUseCase>();
-        services.AddScoped<IReportExcelByCoordenadorUseCase, ReportExcelByCoordenadorUseCase>();
-        services.AddScoped<IReportPdfByCoordenadorUseCase, ReportPdfByCoordenadorUseCase>();
+        services.AddScoped<IReportExcelByCoordinatorUseCase, ReportExcelByCoordinatorUseCase>();
+        services.AddScoped<IReportPdfByCoordinatorUseCase, ReportPdfByCoordinatorUseCase>();
         services.AddScoped<IGetAllCoordinatorsUseCase, GetAllCoordinatorsUseCase>();
     }
 }

@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DATA_MEETING_INVALID" xml:space="preserve">
+  <data name="DATE_CONSULTATION_INVALID" xml:space="preserve">
     <value>O atendimento não pode ser do futuro.</value>
   </data>
-  <data name="DATE_MEETING_EMPTY" xml:space="preserve">
+  <data name="DATE_CONSULTATION_EMPTY" xml:space="preserve">
     <value>A data da reunião é obrigatória.</value>
   </data>
   <data name="EMAIL_ALREADY_REGISTERED" xml:space="preserve">
@@ -159,11 +159,8 @@
   <data name="ROLE_INVALID" xml:space="preserve">
     <value>Permissão inválida.</value>
   </data>
-  <data name="SERVICE_NOT_FOUND" xml:space="preserve">
+  <data name="CONSULTATION_NOT_FOUND" xml:space="preserve">
     <value>Atendimento não encontrado.</value>
-  </data>
-  <data name="SUBJECT_MEETING_EMPTY" xml:space="preserve">
-    <value>O assunto da reunião é obrigatório.</value>
   </data>
   <data name="TEACHER_NAME_EMPTY" xml:space="preserve">
     <value>O nome do docente é obrigatório.</value>
@@ -179,5 +176,8 @@
   </data>
   <data name="USER_NOT_FOUND" xml:space="preserve">
     <value>Usuário não encontrado.</value>
+  </data>
+  <data name="SUBJECT_CONSULTATION_EMPTY" xml:space="preserve">
+    <value>O assunto da reunião é obrigatório.</value>
   </data>
 </root>

@@ -8,14 +8,14 @@ using WeApi.Test.InlineData;
 
 namespace WeApi.Test.UseCases.Users.UpdateProfile;
 
-public class UpdateProfileUserTests : RegistroAtendimentoDocenteClassFixture
+public class UpdateProfileUserTests : RegisterConsultationTeacherDocenteClassFixture
 {
     private const string METHOD = "users/update-profile";
     private readonly string _tokenCoordenador;
     private readonly string _email;
     public UpdateProfileUserTests(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
     {
-        _tokenCoordenador = webApplicationFactory.User_Coordenador_1.GetToken();
+        _tokenCoordenador = webApplicationFactory.User_Coordinator_1.GetToken();
         _email = webApplicationFactory.User_Admin.GetEmail();
     }
 

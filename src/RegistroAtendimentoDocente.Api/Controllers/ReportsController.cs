@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel.GetReportByCoordenador;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Excel.ReportExcelServices;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Pdf;
-using RegistroAtendimentoDocente.Application.UseCases.Atendimentos.Reports.Pdf.ReportPdfByCoordinator;
+using RegistroAtendimentoDocente.Application.UseCases.Consultations.Reports.Excel.ReportByCoordinator;
+using RegistroAtendimentoDocente.Application.UseCases.Consultations.Reports.Excel.ReportExcelConsultations;
+using RegistroAtendimentoDocente.Application.UseCases.Consultations.Reports.Pdf.ReportPdfByCoordinator;
+using RegistroAtendimentoDocente.Application.UseCases.Consultations.Reports.Pdf.ReportPdfConsultationsUseCase;
 using RegistroAtendimentoDocente.Communication.Responses;
 using RegistroAtendimentoDocente.Domain.Enums;
 using System.Net.Mime;
@@ -16,13 +16,13 @@ namespace RegistroAtendimentoDocente.Api.Controllers;
 public class ReportsController : ControllerBase
 {
     [HttpGet("excel")]
-    [Authorize(Roles = Roles.COORDENADOR)]
+    [Authorize(Roles = Roles.COORDINATOR)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    public async Task<IActionResult> GetReportServicesExcel(
-        [FromServices] IReportExcelServicesUseCase useCase,
+    public async Task<IActionResult> GetReportConsultationsExcel(
+        [FromServices] IReportExcelConsultationsUseCase useCase,
         [FromQuery] DateOnly month
         )
     {
@@ -35,15 +35,15 @@ public class ReportsController : ControllerBase
     }
 
     [HttpGet]
-    [Route("excel/coordenador/{id}")]
+    [Route("excel/coordinator/{id}")]
     [Authorize(Roles = Roles.ADMIN)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ResponseErrorsJson), StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetReportServicesExcelByCoordinator(
-        [FromServices] IReportExcelByCoordenadorUseCase useCase,
+    public async Task<IActionResult> GetReportConsultationsExcelByCoordinator(
+        [FromServices] IReportExcelByCoordinatorUseCase useCase,
         [FromRoute] long id
         )
     {
@@ -58,11 +58,11 @@ public class ReportsController : ControllerBase
     }
 
     [HttpGet("pdf")]
-    [Authorize(Roles = Roles.COORDENADOR)]
+    [Authorize(Roles = Roles.COORDINATOR)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
-    public async Task<IActionResult> GetReportServicesPdf(
-        [FromServices] IReportPdfServicesUseCase useCase,
+    public async Task<IActionResult> GetReportConsultationsPdf(
+        [FromServices] IReportPdfConsultationsUseCase useCase,
         [FromQuery] DateOnly month
         )
     {
@@ -75,15 +75,15 @@ public class ReportsController : ControllerBase
     }
 
     [HttpGet]
-    [Route("pdf/coordenador/{id}")]
+    [Route("pdf/coordinator/{id}")]
     [Authorize(Roles = Roles.ADMIN)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(typeof(ResponseErrorsJson), StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetReportServicesPdfByCoordinator(
-        [FromServices] IReportPdfByCoordenadorUseCase useCase,
+    public async Task<IActionResult> GetReportConsultationsPdfByCoordinator(
+        [FromServices] IReportPdfByCoordinatorUseCase useCase,
         [FromRoute] long id
         )
     {

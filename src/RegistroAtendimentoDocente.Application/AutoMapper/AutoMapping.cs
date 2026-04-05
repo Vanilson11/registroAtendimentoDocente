@@ -14,17 +14,17 @@ public class AutoMapping : Profile
 
     private void RequestToEntity()
     {
-        CreateMap<RequestAtendimentoJson, Atendimento>()
-            .ForMember(dest => dest.Docente, config => config.MapFrom(source => source.Docente));
+        CreateMap<RequestConsultationJson, Consultation>()
+            .ForMember(dest => dest.Teacher, config => config.MapFrom(source => source.Teacher));
         CreateMap<RequestRegisterUserJson, User>()
             .ForMember(dest => dest.Password, config => config.Ignore());
     }
 
     private void EntityToResponse()
     {
-        CreateMap<Atendimento, ResponseRegisterAtendimentoJson>();
-        CreateMap<Atendimento, ResponseShortAtendimentosJson>();
-        CreateMap<Atendimento, ResponseAtendimentoJson>();
+        CreateMap<Consultation, ResponseRegisterConsultationJson>();
+        CreateMap<Consultation, ResponseShortConsultationJson>();
+        CreateMap<Consultation, ResponseConsultationJson>();
         CreateMap<User, ResponseShortUserJson>();
         CreateMap<User, ResponseUserJson>();
     }

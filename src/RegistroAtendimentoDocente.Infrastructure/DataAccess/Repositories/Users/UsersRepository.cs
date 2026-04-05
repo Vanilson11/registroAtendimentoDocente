@@ -6,9 +6,9 @@ using RegistroAtendimentoDocente.Domain.Repositories.Users;
 namespace RegistroAtendimentoDocente.Infrastructure.DataAccess.Repositories.Users;
 internal class UsersRepository : IReadOnlyUsersRepository, IWriteOnlyUsersRepository, IUpdateOnlyUsersRepository
 {
-    private readonly RegistroAtendimentoDocenteDbContext _dbContext;
+    private readonly RegisterConsultationsTeacherDbContext _dbContext;
 
-    public UsersRepository(RegistroAtendimentoDocenteDbContext dbContext)
+    public UsersRepository(RegisterConsultationsTeacherDbContext dbContext)
     {
        _dbContext = dbContext; 
     }
@@ -57,6 +57,6 @@ internal class UsersRepository : IReadOnlyUsersRepository, IWriteOnlyUsersReposi
 
     public async Task<List<User>> GetAllCoordinators()
     {
-        return await _dbContext.Users.AsNoTracking().Where(user => user.Role == Roles.COORDENADOR).ToListAsync();
+        return await _dbContext.Users.AsNoTracking().Where(user => user.Role == Roles.COORDINATOR).ToListAsync();
     }
 }

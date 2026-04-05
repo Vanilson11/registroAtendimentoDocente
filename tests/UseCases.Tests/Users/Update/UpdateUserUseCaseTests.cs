@@ -12,13 +12,12 @@ namespace UseCases.Tests.Users.Update;
 
 public class UpdateUserUseCaseTests
 {
-    private UpdateUserUseCase CreateUseCase(User? user = null, string? email = null)
+    private UpdateUserUseCase CreateUseCase(User? user = null)
     {
         var updateOnlyRepository = new UpdateOnlyUsersRepositoryBuilder().GetById(user).Build();
-        var readOnlyRepository = new ReadOnlyUsersRepositoryBuilder().ExistActiveUserWithEmail(email).Build();
         var unitOffWork = UnitOffWorkBuilder.Build();
 
-        return new UpdateUserUseCase(updateOnlyRepository, readOnlyRepository, unitOffWork);
+        return new UpdateUserUseCase(updateOnlyRepository, unitOffWork);
     }
 
     [Fact]
@@ -48,10 +47,11 @@ public class UpdateUserUseCaseTests
     }
 
     [Fact]
-    public async Task Error_Name_Empty()
+    public async Task Error_Role_Empty()
     {
         var request = RequestUpdateUserJsonBuilder.Build();
-        request.Name = string.Empty;
+        request.Role = string.Empty;
+
         var user = UserBuilder.Build();
         var useCase = CreateUseCase(user);
 
@@ -60,21 +60,22 @@ public class UpdateUserUseCaseTests
         var result = await act.ShouldThrowAsync<ErrorOnValidationException>();
 
         result.GetErrors().Single()
-            .ShouldSatisfyAllConditions(error => error.ShouldBe(ResourceErrorMessages.NAME_USER_EMPTY));
+            .ShouldSatisfyAllConditions(error => error.ShouldBe(ResourceErrorMessages.ROLE_EMPTY));
     }
 
     [Fact]
-    public async Task Error_Email_Already_Registered()
+    public async Task Error_Role_Invalid()
     {
-        var request = RequestUpdateUserJsonBuilder.Build();
+        var request = RequestUpdateUserJsonBuilder.Build(role: "invalidRole");
+
         var user = UserBuilder.Build();
-        var useCase = CreateUseCase(user, request.Email);
+        var useCase = CreateUseCase(user);
 
         var act = async () => await useCase.Execute(request, user.Id);
 
         var result = await act.ShouldThrowAsync<ErrorOnValidationException>();
 
         result.GetErrors().Single()
-            .ShouldSatisfyAllConditions(error => error.ShouldBe(ResourceErrorMessages.EMAIL_ALREADY_REGISTERED));
+            .ShouldSatisfyAllConditions(error => error.ShouldBe(ResourceErrorMessages.ROLE_INVALID));
     }
 }

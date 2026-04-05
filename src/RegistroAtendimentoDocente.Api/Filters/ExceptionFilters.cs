@@ -10,7 +10,7 @@ public class ExceptionFilters : IExceptionFilter
 {
     public void OnException(ExceptionContext context)
     {
-        if(context.Exception is RegistroAtendimentoDocenteException)
+        if(context.Exception is RegisterConsultationTeacherException)
         {
             HandleExceptionProject(context);
         }
@@ -22,7 +22,7 @@ public class ExceptionFilters : IExceptionFilter
 
     private void HandleExceptionProject(ExceptionContext context)
     {
-        var registroAtendException = (RegistroAtendimentoDocenteException)context.Exception;
+        var registroAtendException = (RegisterConsultationTeacherException)context.Exception;
         var errorResponse = new ResponseErrorsJson(registroAtendException.GetErrors());
 
         context.HttpContext.Response.StatusCode = registroAtendException.StatusCode;

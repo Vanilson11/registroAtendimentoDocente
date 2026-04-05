@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace WeApi.Test.UseCases.Users.GetAllCoordinators;
 
-public class GetAllCoordinatorsTests : RegistroAtendimentoDocenteClassFixture
+public class GetAllCoordinatorsTests : RegisterConsultationTeacherDocenteClassFixture
 {
     private const string METHOD = "users";
     private readonly string _token;

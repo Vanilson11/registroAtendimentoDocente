@@ -5,15 +5,15 @@ using System.Text.Json;
 
 namespace WeApi.Test.UseCases.Users.GetProfile;
 
-public class GetProfileUserTests : RegistroAtendimentoDocenteClassFixture
+public class GetProfileUserTests : RegisterConsultationTeacherDocenteClassFixture
 {
     private const string METHOD = "users/get-profile";
     private readonly string _tokenCoordenador;
     private readonly User _userCoordenador;
     public GetProfileUserTests(CustomWebApplicationFactory webApplicationFactory) : base(webApplicationFactory)
     {
-        _tokenCoordenador = webApplicationFactory.User_Coordenador_1.GetToken();
-        _userCoordenador = webApplicationFactory.User_Coordenador_1.GetUser();
+        _tokenCoordenador = webApplicationFactory.User_Coordinator_1.GetToken();
+        _userCoordenador = webApplicationFactory.User_Coordinator_1.GetUser();
     }
 
     [Fact]

@@ -4,7 +4,7 @@ using System.Text.Json;
 
 namespace WeApi.Test.UseCases.Users.GetAll;
 
-public class GetAllUsersTests : RegistroAtendimentoDocenteClassFixture
+public class GetAllUsersTests : RegisterConsultationTeacherDocenteClassFixture
 {
     private const string METHOD = "users";
     private readonly string _tokenAdmin;
